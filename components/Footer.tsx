@@ -27,7 +27,7 @@ export function Footer() {
               BridgeWay<span className="text-sky-400"> International</span>
             </Link>
             <p className="mt-4 max-w-md text-slate-400">
-              Your trusted gateway from Ethiopia to the USA. We provide
+              Your trusted global gateway to US universities. We provide
               end-to-end support for international students—from airport pickup
               to housing, visa guidance, and orientation.
             </p>
@@ -74,6 +74,9 @@ export function Footer() {
           <p className="text-sm text-slate-500">
             © {new Date().getFullYear()} BridgeWay International. All rights
             reserved.
+          </p>
+          <p className="text-sm text-slate-600">
+            A Barakah Chaser Platform
           </p>
         </div>
       </div>

@@ -102,17 +102,17 @@ export default function Home() {
               variants={itemVariants}
               className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
             >
-              From Ethiopia to the USA —{" "}
+              Your Global Gateway to US Universities —{" "}
               <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">
-                Your Gateway to New Beginning
+                From Anywhere in the World
               </span>
             </motion.h1>
             <motion.p
               variants={itemVariants}
               className="mx-auto mt-6 max-w-2xl text-lg text-slate-400"
             >
-              Premium support for international students. Airport pickup, housing,
-              visa guidance, and orientation—all in one trusted partner.
+              Premium support for international students worldwide. Airport pickup,
+              housing, visa guidance, and orientation—all in one trusted partner.
             </motion.p>
             <motion.div
               variants={itemVariants}

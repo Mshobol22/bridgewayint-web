@@ -26,15 +26,15 @@ export default function RootLayout({
         <body
           className={`${inter.variable} relative min-h-screen font-sans antialiased text-slate-100`}
         >
-          {/* Fixed full-screen background image */}
+          {/* Fixed full-screen background image - atmospheric */}
           <div
-            className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+            className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat blur-3xl saturate-50"
             style={{
               backgroundImage: `url('https://images.unsplash.com/photo-1542361345-89e58247f2d5?q=80&w=2070')`,
             }}
           />
-          {/* Dark translucent overlay */}
-          <div className="fixed inset-0 z-[1] bg-black/40" />
+          {/* Deep, rich overlay for crystal-clear legibility */}
+          <div className="fixed inset-0 z-[1] bg-slate-950/80" />
           {/* Main content layer */}
           <div className="relative z-10">{children}</div>
         </body>
