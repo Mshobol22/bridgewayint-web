@@ -132,7 +132,7 @@ export default function DashboardPage() {
     return (
       <div className="flex min-h-[50vh] items-center justify-center px-8 py-8">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 className="h-10 w-10 animate-spin text-sky-400" />
+          <Loader2 className="h-10 w-10 animate-spin text-emerald-400" />
           <p className="text-sm text-slate-400">Loading your application...</p>
         </div>
       </div>
@@ -177,7 +177,7 @@ export default function DashboardPage() {
           </p>
           <Link
             href="/dashboard/apply"
-            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-sky-500 px-8 py-3.5 font-medium text-white transition-colors hover:bg-sky-400"
+            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-8 py-3.5 font-medium text-white transition-colors hover:bg-emerald-400"
           >
             Start Your Application
             <ArrowRight className="h-5 w-5" />
@@ -236,7 +236,7 @@ export default function DashboardPage() {
               </h2>
               <Link
                 href="/dashboard/apply"
-                className="flex items-center gap-2 text-sm font-medium text-sky-400 transition-colors hover:text-sky-300"
+                className="flex items-center gap-2 text-sm font-medium text-emerald-400 transition-colors hover:text-emerald-300"
               >
                 Update application
                 <ArrowRight className="h-4 w-4" />
@@ -266,7 +266,7 @@ export default function DashboardPage() {
                         {isCompleted ? (
                           <CheckCircle2 className="h-5 w-5 text-emerald-500" />
                         ) : isInProgress ? (
-                          <Clock className="h-5 w-5 animate-pulse text-sky-400" />
+                          <Clock className="h-5 w-5 animate-pulse text-emerald-400" />
                         ) : (
                           <Circle className="h-4 w-4 text-slate-400" />
                         )}
@@ -280,7 +280,7 @@ export default function DashboardPage() {
                                 isCompleted
                                   ? "bg-emerald-500/20 text-emerald-400"
                                   : isInProgress
-                                    ? "bg-sky-500/20 text-sky-400"
+                                    ? "bg-emerald-500/20 text-emerald-400"
                                     : "bg-slate-800/50 text-slate-500"
                               }`}
                             >
@@ -295,7 +295,7 @@ export default function DashboardPage() {
                                   isCompleted
                                     ? "text-emerald-400"
                                     : isInProgress
-                                      ? "text-sky-400"
+                                      ? "text-emerald-400"
                                       : "text-slate-400"
                                 }`}
                               >
@@ -310,7 +310,7 @@ export default function DashboardPage() {
                                 </span>
                               )}
                               {isInProgress && (
-                                <span className="mt-2 inline-block text-xs text-sky-400">
+                                <span className="mt-2 inline-block text-xs text-emerald-400">
                                   In progress
                                 </span>
                               )}

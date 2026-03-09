@@ -11,7 +11,7 @@ export default function Loading() {
         <div className="relative flex h-20 w-20 items-center justify-center">
           {/* Pulsing glowing orb */}
           <motion.div
-            className="absolute h-12 w-12 rounded-full bg-sky-500/40 shadow-[0_0_32px_rgba(56,189,248,0.35)]"
+            className="absolute h-12 w-12 rounded-full bg-emerald-500/40 shadow-[0_0_32px_rgba(52,211,153,0.35)]"
             animate={{
               scale: [1, 1.2, 1],
               opacity: [0.8, 1, 0.8],
@@ -24,7 +24,7 @@ export default function Loading() {
           />
           {/* Spinning ring */}
           <motion.div
-            className="absolute inset-0 rounded-full border border-sky-500/20 border-t-sky-400/70"
+            className="absolute inset-0 rounded-full border border-emerald-500/20 border-t-emerald-400/70"
             animate={{ rotate: 360 }}
             transition={{
               duration: 2.5,

@@ -36,10 +36,10 @@ const STEPS = [
 ];
 
 const inputClasses =
-  "w-full rounded-xl border border-slate-600/50 bg-slate-900/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-all duration-200 focus:border-sky-500/60 focus:ring-2 focus:ring-sky-500/30 focus:shadow-[0_0_20px_rgba(56,189,248,0.15)]";
+  "w-full rounded-xl border border-slate-600/50 bg-slate-900/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-all duration-200 focus:border-emerald-500/60 focus:ring-2 focus:ring-emerald-500/30 focus:shadow-[0_0_20px_rgba(52,211,153,0.15)]";
 
 const selectClasses =
-  "w-full rounded-xl border border-slate-600/50 bg-slate-900/50 px-4 py-3 text-white outline-none transition-all duration-200 focus:border-sky-500/60 focus:ring-2 focus:ring-sky-500/30 focus:shadow-[0_0_20px_rgba(56,189,248,0.15)] [&>option]:bg-slate-900";
+  "w-full rounded-xl border border-slate-600/50 bg-slate-900/50 px-4 py-3 text-white outline-none transition-all duration-200 focus:border-emerald-500/60 focus:ring-2 focus:ring-emerald-500/30 focus:shadow-[0_0_20px_rgba(52,211,153,0.15)] [&>option]:bg-slate-900";
 
 const labelClasses = "mb-2 block text-sm font-medium text-slate-300";
 
@@ -125,7 +125,7 @@ export default function ApplyPage() {
       >
         <Link
           href="/dashboard"
-          className="mb-4 inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-sky-400"
+          className="mb-4 inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-emerald-400"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Dashboard
@@ -144,13 +144,13 @@ export default function ApplyPage() {
           <div
             key={s.id}
             className={`flex items-center gap-2 ${
-              step >= s.id ? "text-sky-400" : "text-slate-500"
+              step >= s.id ? "text-emerald-400" : "text-slate-500"
             }`}
           >
             <div
               className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-medium ${
                 step >= s.id
-                  ? "bg-sky-500/20 ring-2 ring-sky-500/40"
+                  ? "bg-emerald-500/20 ring-2 ring-emerald-500/40"
                   : "bg-slate-800/50"
               }`}
             >
@@ -200,7 +200,7 @@ export default function ApplyPage() {
             </div>
             <div>
               <label htmlFor="countryOfOrigin" className={labelClasses}>
-                Country of Origin <span className="text-sky-400">*</span>
+                Country of Origin <span className="text-emerald-400">*</span>
               </label>
               <div className="relative">
                 <Globe className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-500" />
@@ -270,7 +270,7 @@ export default function ApplyPage() {
             </h2>
             <div>
               <label className={labelClasses}>Passport</label>
-              <label className="flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-600/50 bg-slate-900/30 px-6 py-10 transition-all hover:border-sky-500/40 hover:bg-slate-900/50">
+              <label className="flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-600/50 bg-slate-900/30 px-6 py-10 transition-all hover:border-emerald-500/40 hover:bg-slate-900/50">
                 <Upload className="mb-3 h-10 w-10 text-slate-500" />
                 <span className="text-sm text-slate-400">
                   {formData.passportFile
@@ -289,7 +289,7 @@ export default function ApplyPage() {
             </div>
             <div>
               <label className={labelClasses}>Transcript</label>
-              <label className="flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-600/50 bg-slate-900/30 px-6 py-10 transition-all hover:border-sky-500/40 hover:bg-slate-900/50">
+              <label className="flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-600/50 bg-slate-900/30 px-6 py-10 transition-all hover:border-emerald-500/40 hover:bg-slate-900/50">
                 <Upload className="mb-3 h-10 w-10 text-slate-500" />
                 <span className="text-sm text-slate-400">
                   {formData.transcriptFile
@@ -328,7 +328,7 @@ export default function ApplyPage() {
               type="button"
               onClick={nextStep}
               disabled={isSubmitting}
-              className="flex items-center gap-2 rounded-xl bg-sky-500/20 px-5 py-2.5 text-sm font-medium text-sky-400 transition-colors hover:bg-sky-500/30 disabled:opacity-50"
+              className="flex items-center gap-2 rounded-xl bg-emerald-500/20 px-5 py-2.5 text-sm font-medium text-emerald-400 transition-colors hover:bg-emerald-500/30 disabled:opacity-50"
             >
               Next
               <ArrowRight className="h-4 w-4" />
@@ -338,7 +338,7 @@ export default function ApplyPage() {
               type="button"
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className="flex items-center gap-2 rounded-xl bg-sky-500 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-sky-400 disabled:cursor-not-allowed disabled:opacity-70"
+              className="flex items-center gap-2 rounded-xl bg-emerald-500 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-70"
             >
               {isSubmitting ? (
                 <>

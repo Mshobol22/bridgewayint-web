@@ -24,7 +24,7 @@ export default function DashboardLayout({
       <aside className="fixed left-0 top-0 z-40 flex h-screen w-[280px] flex-col border-r border-slate-800/50 glass-card">
         <div className="flex h-16 items-center border-b border-slate-800/50 px-6">
           <Link href="/" className="text-lg font-semibold text-white">
-            BridgeWay<span className="text-sky-400"> Portal</span>
+            BridgeWay<span className="text-emerald-400"> Portal</span>
           </Link>
         </div>
         <nav className="flex-1 space-y-1 p-4">
@@ -39,7 +39,7 @@ export default function DashboardLayout({
                 href={link.href}
                 className={`flex items-center gap-3 rounded-lg px-4 py-3 transition-colors ${
                   isActive
-                    ? "bg-sky-500/10 text-sky-400"
+                    ? "bg-emerald-500/10 text-emerald-400"
                     : "text-slate-400 hover:bg-slate-800/50 hover:text-white"
                 }`}
               >

@@ -19,7 +19,7 @@ export default function UndergraduatePage() {
             >
               <Link
                 href="/programs"
-                className="text-sm text-slate-400 hover:text-sky-400"
+                className="text-sm text-slate-400 hover:text-emerald-400"
               >
                 ← Back to Programs
               </Link>

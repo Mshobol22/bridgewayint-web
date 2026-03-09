@@ -8,6 +8,7 @@ const footerLinks = {
     { label: "Orientation Tours", href: "/#services" },
   ],
   company: [
+    { label: "Services", href: "/services" },
     { label: "Programs", href: "/programs" },
     { label: "Dashboard", href: "/dashboard" },
     { label: "Contact", href: "/#contact" },
@@ -24,7 +25,7 @@ export function Footer() {
               href="/"
               className="text-2xl font-semibold text-white"
             >
-              BridgeWay<span className="text-sky-400"> International</span>
+              BridgeWay<span className="text-emerald-400"> International</span>
             </Link>
             <p className="mt-4 max-w-md text-slate-400">
               Your trusted global gateway to US universities. We provide
@@ -39,10 +40,10 @@ export function Footer() {
             </h4>
             <ul className="mt-4 space-y-3">
               {footerLinks.services.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-slate-400 transition-colors hover:text-sky-400"
+                    className="text-slate-400 transition-colors hover:text-emerald-400"
                   >
                     {link.label}
                   </Link>
@@ -57,10 +58,10 @@ export function Footer() {
             </h4>
             <ul className="mt-4 space-y-3">
               {footerLinks.company.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-slate-400 transition-colors hover:text-sky-400"
+                    className="text-slate-400 transition-colors hover:text-emerald-400"
                   >
                     {link.label}
                   </Link>
