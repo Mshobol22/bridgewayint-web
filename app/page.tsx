@@ -140,7 +140,7 @@ export default function Home() {
         </section>
 
         {/* Stats Bar */}
-        <section className="border-y border-white/8 bg-[#030712] py-8">
+        <section className="border-y border-white/8 bg-white/[0.02] py-8">
           <div className="max-w-4xl mx-auto px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
               {[
@@ -162,7 +162,7 @@ export default function Home() {
         </section>
 
         {/* Services Grid Section */}
-        <section id="services" className="relative overflow-hidden bg-[#030712] px-6 py-16 sm:py-24">
+        <section id="services" className="relative bg-[#030712] px-6 py-16 sm:py-24">
           <div className="relative z-10 mx-auto max-w-6xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -181,7 +181,7 @@ export default function Home() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {services.map((service, i) => {
                 const IconComponent = service.icon;
                 return (
@@ -193,18 +193,18 @@ export default function Home() {
                   >
                     <Link
                       href={service.servicesLink}
-                      className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:border-white/20 hover:bg-white/10"
+                      className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:bg-white/8 hover:border-white/20"
                     >
-                      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-blue-500/20 bg-blue-600/15 p-2 text-blue-400">
+                      <div className="w-10 h-10 bg-blue-600/15 border border-blue-500/20 rounded-xl p-2 mb-4 text-blue-400 flex items-center justify-center">
                         <IconComponent className="h-5 w-5" strokeWidth={1.5} />
                       </div>
-                      <h3 className="mb-2 text-lg font-semibold text-white">
+                      <h3 className="text-lg font-semibold text-white mb-2">
                         {service.title}
                       </h3>
-                      <p className="mb-4 flex-1 text-sm leading-relaxed text-white/55">
+                      <p className="text-white/55 text-sm leading-relaxed mb-4">
                         {service.description}
                       </p>
-                      <span className="text-sm text-blue-400 transition-colors group-hover:text-blue-300">
+                      <span className="text-blue-400 text-sm group-hover:text-blue-300 transition-colors">
                         Learn more →
                       </span>
                     </Link>
@@ -236,7 +236,7 @@ export default function Home() {
         </div>
 
         {/* How It Works Section */}
-        <section className="relative overflow-hidden bg-[#030712] px-6 py-16 sm:py-24">
+        <section className="relative bg-[#030712] px-6 py-16 sm:py-24">
           <div className="relative mx-auto max-w-5xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -257,12 +257,8 @@ export default function Home() {
             </motion.div>
 
             <div className="relative">
-              {/* Desktop: horizontal dashed connector */}
-              <div
-                className="-z-10 absolute left-0 right-0 top-5 hidden border-t-2 border-dashed border-white/10 lg:block"
-                aria-hidden
-              />
-              <div className="grid grid-cols-1 gap-8 lg:grid-cols-5 lg:gap-4">
+              <div className="hidden lg:block absolute top-5 left-0 right-0 border-t-2 border-dashed border-white/10 -z-10" />
+              <div className="grid grid-cols-1 gap-4 max-w-5xl mx-auto lg:grid-cols-5">
                 {[
                   {
                     step: 1,
@@ -309,14 +305,14 @@ export default function Home() {
                       transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
                       className="relative flex flex-col items-center"
                     >
-                      <div className="relative z-10 mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                      <div className="w-10 h-10 rounded-full bg-blue-600 text-white font-bold text-sm flex items-center justify-center mb-3 mx-auto">
                         {item.step}
                       </div>
-                      <StepIcon className="mx-auto mb-2 h-5 w-5 text-blue-400" strokeWidth={1.5} />
-                      <h3 className="text-center text-sm font-semibold text-white">
+                      <StepIcon className="text-blue-400 w-5 h-5 mb-2 mx-auto" strokeWidth={1.5} />
+                      <h3 className="font-semibold text-white text-sm text-center">
                         {item.title}
                       </h3>
-                      <p className="mt-1 text-center text-xs leading-relaxed text-white/50">
+                      <p className="text-white/50 text-xs text-center leading-relaxed mt-1">
                         {item.description}
                       </p>
                     </motion.div>
@@ -328,7 +324,7 @@ export default function Home() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="relative overflow-hidden bg-[#030712] px-6 py-16 sm:py-24">
+        <section className="relative bg-[#030712] px-6 py-16 sm:py-24">
           <div className="mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -348,7 +344,7 @@ export default function Home() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
                   quote:
@@ -380,25 +376,25 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-all hover:border-white/15 hover:bg-white/10"
+                  className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/8 hover:border-white/15 transition-all"
                 >
-                  <div className="mb-3 text-sm text-yellow-400">★★★★★</div>
-                  <p className="mb-5 text-base italic leading-relaxed text-white/75">
+                  <div className="text-yellow-400 text-sm mb-3">★★★★★</div>
+                  <p className="text-white/75 text-base italic leading-relaxed mb-5">
                     {testimonial.quote}
                   </p>
                   <div className="flex items-center gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-blue-500/20 bg-blue-600/30 text-sm font-bold text-white">
+                    <div className="w-10 h-10 rounded-full bg-blue-600/30 border border-blue-500/20 flex items-center justify-center text-white font-bold text-sm shrink-0">
                       {testimonial.initials}
                     </div>
                     <div className="min-w-0">
-                      <p className="text-sm font-semibold text-white">
+                      <p className="font-semibold text-white text-sm">
                         {testimonial.name}
                       </p>
                       <span className="flex items-center gap-1.5 text-white/45 text-xs">
-                        <span className="w-2 h-2 rounded-full bg-blue-400 inline-block" />
+                        <span className="w-2 h-2 rounded-full bg-blue-400 inline-block shrink-0" />
                         {testimonial.country}
                       </span>
-                      <p className="text-xs text-blue-400">
+                      <p className="text-blue-400 text-xs">
                         {testimonial.program}
                       </p>
                     </div>
@@ -420,7 +416,7 @@ export default function Home() {
         </section>
 
         {/* Students We Serve - Country Grid */}
-        <section className="py-20 px-6 bg-[#030712]">
+        <section className="py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-xs font-semibold tracking-widest uppercase text-blue-400 mb-3">Our Students Come From</p>
             <h2 className="text-3xl font-bold mb-12 text-white">We Serve Students Worldwide</h2>

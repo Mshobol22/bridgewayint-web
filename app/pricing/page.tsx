@@ -257,7 +257,7 @@ export default function PricingPage() {
           {/* Trusted by students from */}
           <div className="relative z-10 mt-16">
             <p className="text-center text-white/40 text-sm mb-4">Trusted by students from</p>
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 max-w-2xl mx-auto">
               {[
                 { country: "Nigeria", code: "NG" },
                 { country: "Saudi Arabia", code: "SA" },
@@ -268,10 +268,10 @@ export default function PricingPage() {
               ].map(({ country, code }) => (
                 <div
                   key={country}
-                  className="bg-white/5 border border-white/10 rounded-lg py-2 px-3 text-center hover:bg-white/8 hover:border-white/20 transition-all"
+                  className="bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-center hover:bg-white/8 hover:border-white/20 transition-all"
                 >
-                  <div className="text-xs font-bold text-white/30">{code}</div>
-                  <div className="text-white/70 text-xs font-medium">{country}</div>
+                  <div className="text-xs font-bold text-white/30 mb-1">{code}</div>
+                  <div className="text-white/70 text-sm font-medium">{country}</div>
                 </div>
               ))}
             </div>

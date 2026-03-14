@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { GraduationCap, BookOpen, FlaskConical, ArrowRight } from "lucide-react";
-import { Footer } from "@/components/Footer";
 
 const programs = [
   {
@@ -55,7 +54,7 @@ export default function ProgramsPage() {
         </div>
         <h1 className="text-5xl font-bold mb-3 tracking-tight">Programs</h1>
         <p className="text-white/50 text-lg tracking-widest uppercase text-sm">
-          Undergrad · Bachelor&apos;s · Master&apos;s
+          Undergrad · Bachelor's · Master's
         </p>
       </section>
 
@@ -108,8 +107,6 @@ export default function ProgramsPage() {
           </Link>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

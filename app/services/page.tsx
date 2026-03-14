@@ -121,24 +121,14 @@ export default function ServicesPage() {
   return (
     <>
       <main className="relative min-h-screen bg-[#030712]">
-        {/* Dot grid overlay */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.015]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-            backgroundSize: "24px 24px",
-          }}
-          aria-hidden
-        />
         {/* Blue radial glow top-center */}
         <div
-          className="pointer-events-none absolute top-0 left-1/2 h-[500px] w-[500px] -translate-x-1/2 bg-blue-600/8 blur-[160px]"
+          className="pointer-events-none absolute top-0 left-1/2 z-0 h-[500px] w-[500px] -translate-x-1/2 bg-blue-600/10 blur-[160px]"
           aria-hidden
         />
 
         {/* Hero */}
-        <section className="relative flex min-h-[50vh] flex-col items-center justify-center px-6 py-24">
+        <section className="relative z-10 flex min-h-[50vh] flex-col items-center justify-center px-6 py-24">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="text-4xl font-bold text-white sm:text-5xl md:text-6xl">
               Our Services
@@ -157,7 +147,7 @@ export default function ServicesPage() {
             <section
               key={service.id}
               id={service.id}
-              className="py-16 border-b border-white/5 last:border-0"
+              className="relative z-10 py-16 border-b border-white/5 last:border-0"
             >
               <div className="max-w-4xl mx-auto px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -180,7 +170,7 @@ export default function ServicesPage() {
                     </ul>
                     <Link
                       href="/consultation"
-                      className="inline-flex items-center gap-2 bg-white/8 border border-white/12 hover:bg-white/12 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-all"
+                      className="inline-flex items-center gap-2 bg-white/8 border border-white/10 hover:bg-white/10 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-all"
                     >
                       Request Consultation <ArrowRight className="w-4 h-4" />
                     </Link>
@@ -203,7 +193,7 @@ export default function ServicesPage() {
         })}
 
         {/* Testimonials */}
-        <section className="relative px-6 py-24">
+        <section className="relative z-10 px-6 py-24">
           <div className="mx-auto max-w-3xl rounded-2xl border border-white/10 bg-white/5 p-8 md:p-12">
             <blockquote className="border-l-2 border-blue-500/50 pl-5 text-xl italic leading-relaxed text-white/60 md:text-2xl">
               &ldquo;BridgeWay helped me find housing before I arrived and
@@ -214,7 +204,7 @@ export default function ServicesPage() {
             </cite>
             <Link
               href="/consultation"
-              className="mt-8 inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/8 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/12"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/8 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/10"
             >
               Request Consultation <ArrowRight className="w-4 h-4" />
             </Link>
@@ -222,7 +212,7 @@ export default function ServicesPage() {
         </section>
 
         {/* FAQ */}
-        <section className="relative px-6 py-24">
+        <section className="relative z-10 px-6 py-24">
           <div className="mx-auto max-w-3xl">
             <h2 className="mb-12 text-3xl font-bold text-white">
               Frequently Asked Questions
@@ -264,7 +254,7 @@ export default function ServicesPage() {
             </div>
             <Link
               href="/consultation"
-              className="mt-12 inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/8 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/12"
+              className="mt-12 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/8 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/10"
             >
               Request Consultation <ArrowRight className="w-4 h-4" />
             </Link>
@@ -272,7 +262,7 @@ export default function ServicesPage() {
         </section>
 
         {/* CTA */}
-        <section className="relative px-6 py-24">
+        <section className="relative z-10 px-6 py-24">
           <div className="mx-auto max-w-4xl rounded-3xl border border-white/10 bg-white/5 p-12 text-center md:p-16">
             <h2 className="text-3xl font-bold text-white sm:text-4xl">
               Ready to Begin Your Journey?

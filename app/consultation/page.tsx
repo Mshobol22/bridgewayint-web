@@ -237,7 +237,7 @@ export default function ConsultationPage() {
                 {/* Form */}
                 <motion.form
                   onSubmit={handleSubmit}
-                  className="mx-auto max-w-2xl space-y-6 rounded-2xl border border-white/8 bg-white/[0.03] p-8 sm:p-10"
+                  className="mx-auto max-w-2xl space-y-6 rounded-2xl border border-white/10 bg-white/5 p-8 sm:p-10"
                   initial="hidden"
                   animate="visible"
                   variants={fadeUpVariants}
