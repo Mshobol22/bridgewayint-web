@@ -10,6 +10,8 @@ const footerLinks = {
   company: [
     { label: "Services", href: "/services" },
     { label: "Programs", href: "/programs" },
+    { label: "About Us", href: "/about" },
+    { label: "Free Consultation", href: "/consultation" },
     { label: "Dashboard", href: "/dashboard" },
     { label: "Contact", href: "/#contact" },
   ],

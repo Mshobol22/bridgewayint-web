@@ -19,6 +19,11 @@ export default function DashboardLayout({
 }) {
   const pathname = usePathname();
 
+  // Coming Soon page: no sidebar, full-width (page includes its own Navbar)
+  if (pathname === "/dashboard") {
+    return <>{children}</>;
+  }
+
   return (
     <div className="flex min-h-screen">
       <aside className="fixed left-0 top-0 z-40 flex h-screen w-[280px] flex-col border-r border-slate-800/50 glass-card">

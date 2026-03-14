@@ -212,12 +212,12 @@ export default function Home() {
                         >
                           Learn more →
                         </Link>
-                        <button
-                          onClick={() => setIsModalOpen(true)}
+                        <Link
+                          href="/consultation"
                           className="text-sm font-medium text-emerald-400 transition-colors hover:text-emerald-300"
                         >
                           Request Consultation
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </motion.div>
@@ -244,12 +244,12 @@ export default function Home() {
               exclusive resources.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <button
-                onClick={() => setIsModalOpen(true)}
+              <Link
+                href="/consultation"
                 className="inline-flex rounded-full bg-emerald-500 px-8 py-3.5 font-semibold text-white transition-all hover:bg-emerald-400"
               >
                 Request Consultation
-              </button>
+              </Link>
               <Link
                 href="/dashboard"
                 className="inline-flex rounded-full glass px-8 py-3.5 font-medium text-slate-200 transition-all hover:bg-slate-800/50"

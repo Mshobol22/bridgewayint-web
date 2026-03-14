@@ -13,7 +13,6 @@ import {
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { LeadModal } from "@/components/LeadModal";
 import { ServicesParallax } from "@/components/ServicesParallax";
 
 const fadeUpVariants = {
@@ -108,7 +107,6 @@ const SERVICES = [
 ];
 
 export default function ServicesPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const pathname = usePathname();
 
@@ -136,7 +134,6 @@ export default function ServicesPage() {
   return (
     <>
       <Navbar />
-      <LeadModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <ServicesParallax>
         <main className="min-h-screen pt-24">
           {/* Hero - centered over parallax */}
@@ -219,12 +216,12 @@ export default function ServicesPage() {
                       </div>
                     </div>
 
-                    <button
-                      onClick={() => setIsModalOpen(true)}
-                      className="mt-8 rounded-full bg-emerald-500 px-6 py-3 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:bg-emerald-400 hover:shadow-emerald-500/40"
+                    <Link
+                      href="/consultation"
+                      className="mt-8 inline-block rounded-full bg-emerald-500 px-6 py-3 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:bg-emerald-400 hover:shadow-emerald-500/40"
                     >
                       Request Consultation
-                    </button>
+                    </Link>
                   </div>
 
                   <div
@@ -263,12 +260,12 @@ export default function ServicesPage() {
             <cite className="mt-6 block text-emerald-400 not-italic">
               — International Student
             </cite>
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="mt-8 rounded-full bg-emerald-500 px-6 py-3 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:bg-emerald-400"
+            <Link
+              href="/consultation"
+              className="mt-8 inline-block rounded-full bg-emerald-500 px-6 py-3 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:bg-emerald-400"
             >
               Request Consultation
-            </button>
+            </Link>
           </motion.div>
             </div>
           </section>
@@ -322,12 +319,12 @@ export default function ServicesPage() {
                 </div>
               ))}
             </div>
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="mt-12 rounded-full bg-emerald-500 px-8 py-3.5 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:bg-emerald-400"
+            <Link
+              href="/consultation"
+              className="mt-12 inline-block rounded-full bg-emerald-500 px-8 py-3.5 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:bg-emerald-400"
             >
               Request Consultation
-            </button>
+            </Link>
           </motion.div>
             </div>
           </section>
@@ -351,12 +348,12 @@ export default function ServicesPage() {
               housing, visa guidance, and orientation.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <button
-                onClick={() => setIsModalOpen(true)}
+              <Link
+                href="/consultation"
                 className="rounded-full bg-emerald-500 px-8 py-3.5 font-semibold text-white transition-all hover:bg-emerald-400"
               >
                 Request Consultation
-              </button>
+              </Link>
               <Link
                 href="/dashboard"
                 className="rounded-full glass px-8 py-3.5 font-medium text-slate-200 transition-all hover:bg-slate-800/50"
