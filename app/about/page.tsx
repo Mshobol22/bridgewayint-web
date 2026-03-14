@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ChevronLeft, ArrowRight } from "lucide-react";
-import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 const STATS = [
@@ -52,8 +51,7 @@ const fadeUpVariants = {
 export default function AboutPage() {
   return (
     <>
-      <Navbar />
-      <div className="min-h-screen bg-[#030712] pt-16 pb-12">
+      <div className="min-h-screen bg-[#030712]">
         <div className="relative mx-auto max-w-4xl px-6 pb-24">
           {/* 1. Hero */}
           <motion.div

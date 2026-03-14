@@ -12,7 +12,6 @@ import {
   Plus,
   Minus,
 } from "lucide-react";
-import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 const TIERS = [
@@ -102,8 +101,7 @@ export default function PricingPage() {
 
   return (
     <>
-      <Navbar />
-      <div className="relative min-h-screen bg-[#030712] pt-16 pb-12">
+      <div className="relative min-h-screen bg-[#030712]">
         <div className="relative mx-auto max-w-6xl px-6 pb-24">
           {/* Radial glow top-center */}
           <div
@@ -143,12 +141,24 @@ export default function PricingPage() {
               variants={fadeUpVariants}
               initial="hidden"
               animate="visible"
-              className="mx-auto max-w-2xl text-slate-400"
+              className="mx-auto max-w-2xl text-white/55"
             >
               No hidden fees. Choose the level of support that fits your journey
               — you can always upgrade later.
             </motion.p>
           </motion.div>
+
+          {/* Pill Toggle */}
+          <div className="relative z-10 flex justify-center mt-10">
+            <div className="inline-flex bg-white/5 border border-white/10 rounded-full p-1 mb-10">
+              <button type="button" className="px-5 py-2 rounded-full bg-white text-black text-sm font-semibold">
+                Packages
+              </button>
+              <button type="button" className="px-5 py-2 rounded-full text-white/50 text-sm font-medium hover:text-white transition-colors">
+                Per Service
+              </button>
+            </div>
+          </div>
 
           {/* Pricing Cards */}
           <motion.div
@@ -243,6 +253,29 @@ export default function PricingPage() {
               );
             })}
           </motion.div>
+
+          {/* Trusted by students from */}
+          <div className="relative z-10 mt-16">
+            <p className="text-center text-white/40 text-sm mb-4">Trusted by students from</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {[
+                { country: "Nigeria", code: "NG" },
+                { country: "Saudi Arabia", code: "SA" },
+                { country: "Ghana", code: "GH" },
+                { country: "India", code: "IN" },
+                { country: "Pakistan", code: "PK" },
+                { country: "Kenya", code: "KE" },
+              ].map(({ country, code }) => (
+                <div
+                  key={country}
+                  className="bg-white/5 border border-white/10 rounded-lg py-2 px-3 text-center hover:bg-white/8 hover:border-white/20 transition-all"
+                >
+                  <div className="text-xs font-bold text-white/30">{code}</div>
+                  <div className="text-white/70 text-xs font-medium">{country}</div>
+                </div>
+              ))}
+            </div>
+          </div>
 
           {/* What's Not Included */}
           <motion.div

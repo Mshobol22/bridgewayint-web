@@ -3,8 +3,7 @@
 import { useState, FormEvent } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ArrowRight, CheckCircle2, Loader2, Check } from "lucide-react";
-import { Navbar } from "@/components/Navbar";
+import { ArrowRight, CheckCircle2, Loader2, Check } from "lucide-react";
 import { Footer } from "@/components/Footer";
 
 const PROGRAM_OPTIONS = [
@@ -117,8 +116,7 @@ export default function ConsultationPage() {
 
   return (
     <>
-      <Navbar />
-      <div className="relative min-h-screen overflow-hidden bg-[#030712] pt-16 pb-12">
+      <div className="relative min-h-screen overflow-hidden bg-[#030712]">
         {/* Background decorations - pointer-events-none */}
         <div className="pointer-events-none absolute inset-0">
           {/* Blue radial glow top-left */}
@@ -203,20 +201,6 @@ export default function ConsultationPage() {
                     variants={fadeUpVariants}
                     initial="hidden"
                     animate="visible"
-                  >
-                    <Link
-                      href="/"
-                      className="inline-flex items-center gap-1.5 text-sm text-white/40 transition-colors hover:text-white"
-                    >
-                      <ChevronLeft className="h-4 w-4" />
-                      Back to Home
-                    </Link>
-                  </motion.div>
-                  <motion.div
-                    custom={1}
-                    variants={fadeUpVariants}
-                    initial="hidden"
-                    animate="visible"
                     className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2"
                   >
                     <span className="relative flex h-2 w-2">
@@ -228,7 +212,7 @@ export default function ConsultationPage() {
                     </span>
                   </motion.div>
                   <motion.h1
-                    custom={2}
+                    custom={1}
                     variants={fadeUpVariants}
                     initial="hidden"
                     animate="visible"
@@ -237,7 +221,7 @@ export default function ConsultationPage() {
                     Start Your Journey
                   </motion.h1>
                   <motion.p
-                    custom={3}
+                    custom={2}
                     variants={fadeUpVariants}
                     initial="hidden"
                     animate="visible"
@@ -248,10 +232,12 @@ export default function ConsultationPage() {
                   </motion.p>
                 </header>
 
+                <hr className="border-white/8 mb-8" />
+
                 {/* Form */}
                 <motion.form
                   onSubmit={handleSubmit}
-                  className="mx-auto max-w-2xl space-y-6 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-8 sm:p-10"
+                  className="mx-auto max-w-2xl space-y-6 rounded-2xl border border-white/8 bg-white/[0.03] p-8 sm:p-10"
                   initial="hidden"
                   animate="visible"
                   variants={fadeUpVariants}
@@ -348,7 +334,7 @@ export default function ConsultationPage() {
                       required
                       value={formData.programInterest}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white outline-none transition-colors focus:border-blue-500/60 focus:bg-blue-950/20 focus:ring-2 focus:ring-blue-500/20 [&>option]:bg-[#0f172a] [&>option]:text-white"
+                      className="w-full bg-[#0f172a] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500/50 transition-all text-sm appearance-none cursor-pointer [&>option]:bg-[#0f172a] [&>option]:text-white"
                     >
                       <option value="">Select program...</option>
                       {PROGRAM_OPTIONS.map((opt) => (
@@ -372,7 +358,7 @@ export default function ConsultationPage() {
                       required
                       value={formData.serviceNeeded}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white outline-none transition-colors focus:border-blue-500/60 focus:bg-blue-950/20 focus:ring-2 focus:ring-blue-500/20 [&>option]:bg-[#0f172a] [&>option]:text-white"
+                      className="w-full bg-[#0f172a] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500/50 transition-all text-sm appearance-none cursor-pointer [&>option]:bg-[#0f172a] [&>option]:text-white"
                     >
                       <option value="">Select service...</option>
                       {SERVICE_OPTIONS.map((opt) => (
@@ -396,7 +382,7 @@ export default function ConsultationPage() {
                       required
                       value={formData.preferredStartDate}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white outline-none transition-colors focus:border-blue-500/60 focus:bg-blue-950/20 focus:ring-2 focus:ring-blue-500/20 [&>option]:bg-[#0f172a] [&>option]:text-white"
+                      className="w-full bg-[#0f172a] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500/50 transition-all text-sm appearance-none cursor-pointer [&>option]:bg-[#0f172a] [&>option]:text-white"
                     >
                       <option value="">Select start date...</option>
                       {START_DATE_OPTIONS.map((opt) => (
@@ -454,6 +440,9 @@ export default function ConsultationPage() {
                       By submitting, you agree to be contacted by a BridgeWay
                       advisor. No spam, ever.
                     </p>
+                    <p className="text-center text-xs text-white/30">
+                      🔒 Your information is secure and never shared.
+                    </p>
                   </div>
                 </motion.form>
                 </div>
@@ -465,8 +454,8 @@ export default function ConsultationPage() {
                   transition={{ duration: 0.5, delay: 0.3 }}
                   className="hidden space-y-6 lg:col-span-2 lg:block"
                 >
-                  <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6">
-                    <h3 className="text-lg font-semibold text-white">
+                  <div className="rounded-2xl border border-blue-500/20 bg-gradient-to-b from-blue-950/40 to-transparent p-6">
+                    <h3 className="font-semibold text-white mb-4">
                       Why BridgeWay?
                     </h3>
                     <ul className="mt-4 space-y-3">

@@ -1,11 +1,9 @@
 import { UserProfile } from "@clerk/nextjs";
-import { Navbar } from "@/components/Navbar";
 
 export default function UserProfilePage() {
   return (
     <>
-      <Navbar />
-      <main className="flex min-h-screen flex-col items-center justify-center px-6 pt-24 pb-12">
+      <main className="flex min-h-screen flex-col items-center justify-center px-6 py-12">
         <UserProfile
           appearance={{
             variables: {

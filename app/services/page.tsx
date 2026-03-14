@@ -7,21 +7,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Plane,
   Home as HomeIcon,
-  FileCheck,
-  MapPin,
+  FileText,
+  Map,
   ChevronDown,
+  Check,
+  ArrowRight,
 } from "lucide-react";
-import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-
-const fadeUpVariants = {
-  hidden: { y: 24, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-  },
-};
 
 const FAQ_ITEMS = [
   {
@@ -43,7 +35,6 @@ const SERVICES = [
     id: "airport-pickup",
     title: "Airport Pickup & Welcome Assistance",
     icon: Plane,
-    gradient: "from-emerald-500/20 to-violet-500/10",
     whatIncludes: [
       "Personalized meet-and-greet at the airport arrivals area",
       "Luggage assistance and transport to your accommodation",
@@ -59,7 +50,6 @@ const SERVICES = [
     id: "housing",
     title: "Housing & Roommate Support",
     icon: HomeIcon,
-    gradient: "from-emerald-500/20 to-teal-500/10",
     whatIncludes: [
       "Curated listings of safe, student-friendly housing",
       "Roommate matching based on preferences and lifestyle",
@@ -74,8 +64,7 @@ const SERVICES = [
   {
     id: "visa",
     title: "Visa & Application Guidance",
-    icon: FileCheck,
-    gradient: "from-violet-500/20 to-purple-500/10",
+    icon: FileText,
     whatIncludes: [
       "Step-by-step visa application support",
       "Document preparation and checklist review",
@@ -90,8 +79,7 @@ const SERVICES = [
   {
     id: "orientation-tours",
     title: "City & Campus Orientation Tours",
-    icon: MapPin,
-    gradient: "from-amber-500/20 to-orange-500/10",
+    icon: Map,
     whatIncludes: [
       "Guided campus tours and key facility introductions",
       "City orientation: transit, banks, groceries, and essentials",
@@ -132,8 +120,7 @@ export default function ServicesPage() {
 
   return (
     <>
-      <Navbar />
-      <main className="relative min-h-screen bg-[#030712] pt-16 pb-12">
+      <main className="relative min-h-screen bg-[#030712]">
         {/* Dot grid overlay */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.015]"
@@ -150,14 +137,9 @@ export default function ServicesPage() {
           aria-hidden
         />
 
-        {/* Hero - clean dark background, centered, generous padding */}
+        {/* Hero */}
         <section className="relative flex min-h-[50vh] flex-col items-center justify-center px-6 py-24">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeUpVariants}
-            className="mx-auto max-w-4xl text-center"
-          >
+          <div className="mx-auto max-w-4xl text-center">
             <h1 className="text-4xl font-bold text-white sm:text-5xl md:text-6xl">
               Our Services
             </h1>
@@ -165,106 +147,64 @@ export default function ServicesPage() {
               End-to-end support for international students—from arrival to
               orientation. Everything you need to succeed in the US.
             </p>
-          </motion.div>
-        </section>
-
-        {/* Service Sections - plain dark background, content-only */}
-        <section className="relative px-6">
-          <div className="mx-auto max-w-6xl">
-            {SERVICES.map((service, i) => {
-              const IconComponent = service.icon;
-              const isReversed = i % 2 === 1;
-
-              const isLast = i === SERVICES.length - 1;
-              return (
-                <motion.div
-                  key={service.id}
-                  id={service.id}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-80px" }}
-                  variants={fadeUpVariants}
-                  className={`flex flex-col gap-12 py-20 md:flex-row md:items-center md:gap-16 ${
-                    isReversed ? "md:flex-row-reverse" : ""
-                  } ${!isLast ? "border-b border-white/5" : ""}`}
-                >
-                  <div className="flex-1">
-                    <div
-                      className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${service.gradient} text-emerald-400`}
-                    >
-                      <IconComponent className="h-7 w-7" strokeWidth={1.5} />
-                    </div>
-                    <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl">
-                      {service.title}
-                    </h2>
-
-                    <div className="mt-8 space-y-6">
-                      <div>
-                        <h3 className="text-sm font-semibold uppercase tracking-wider text-emerald-400">
-                          What This Service Includes
-                        </h3>
-                        <ul className="mt-2 space-y-2 text-slate-400">
-                          {service.whatIncludes.map((item) => (
-                            <li key={item} className="flex gap-2">
-                              <span className="text-emerald-500">•</span>
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div>
-                        <h3 className="text-sm font-semibold uppercase tracking-wider text-emerald-400">
-                          Who This Service Is For
-                        </h3>
-                        <p className="mt-2 text-slate-400">
-                          {service.whoFor}
-                        </p>
-                      </div>
-
-                      <div>
-                        <h3 className="text-sm font-semibold uppercase tracking-wider text-emerald-400">
-                          How It Works
-                        </h3>
-                        <p className="mt-2 text-slate-400">{service.howWorks}</p>
-                      </div>
-                    </div>
-
-                    <Link
-                      href="/consultation"
-                      className="mt-8 inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/8 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/12"
-                    >
-                      Request Consultation
-                    </Link>
-                  </div>
-
-                  <div
-                    className={`flex flex-1 justify-center ${isReversed ? "md:justify-start" : "md:justify-end"}`}
-                  >
-                    <div
-                      className={`flex h-48 w-48 items-center justify-center rounded-2xl border border-slate-700/50 bg-slate-800/30 backdrop-blur-sm md:h-56 md:w-56`}
-                    >
-                      <IconComponent
-                        className="h-24 w-24 text-emerald-500/40 md:h-28 md:w-28"
-                        strokeWidth={1}
-                      />
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
           </div>
         </section>
 
+        {/* Service Sections */}
+        {SERVICES.map((service) => {
+          const Icon = service.icon;
+          return (
+            <section
+              key={service.id}
+              id={service.id}
+              className="py-16 border-b border-white/5 last:border-0"
+            >
+              <div className="max-w-4xl mx-auto px-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                  {/* Left: Content */}
+                  <div>
+                    <div className="w-12 h-12 bg-blue-600/15 border border-blue-500/20 rounded-xl flex items-center justify-center mb-5">
+                      <Icon className="w-6 h-6 text-blue-400" />
+                    </div>
+                    <h2 className="text-3xl font-bold mb-4 text-white">{service.title}</h2>
+                    <h3 className="text-white/50 text-sm font-semibold uppercase tracking-widest mb-6">
+                      What This Service Includes
+                    </h3>
+                    <ul className="space-y-3 mb-8">
+                      {service.whatIncludes.map((item) => (
+                        <li key={item} className="flex items-start gap-3 text-white/70 text-sm leading-relaxed">
+                          <Check className="w-4 h-4 text-green-400 shrink-0 mt-0.5" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href="/consultation"
+                      className="inline-flex items-center gap-2 bg-white/8 border border-white/12 hover:bg-white/12 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-all"
+                    >
+                      Request Consultation <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                  {/* Right: Who it's for + How it works */}
+                  <div className="space-y-6">
+                    <div className="bg-white/5 border border-white/10 rounded-xl p-5">
+                      <h4 className="font-semibold text-white/90 mb-2 text-sm">Who This Is For</h4>
+                      <p className="text-white/55 text-sm leading-relaxed">{service.whoFor}</p>
+                    </div>
+                    <div className="bg-white/5 border border-white/10 rounded-xl p-5">
+                      <h4 className="font-semibold text-white/90 mb-2 text-sm">How It Works</h4>
+                      <p className="text-white/55 text-sm leading-relaxed">{service.howWorks}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          );
+        })}
+
         {/* Testimonials */}
         <section className="relative px-6 py-24">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUpVariants}
-            className="mx-auto max-w-3xl rounded-2xl border border-white/[0.08] bg-white/[0.03] p-8 md:p-12"
-          >
+          <div className="mx-auto max-w-3xl rounded-2xl border border-white/10 bg-white/5 p-8 md:p-12">
             <blockquote className="border-l-2 border-blue-500/50 pl-5 text-xl italic leading-relaxed text-white/60 md:text-2xl">
               &ldquo;BridgeWay helped me find housing before I arrived and
               picked me up from the airport. The transition was very smooth.&rdquo;
@@ -276,20 +216,14 @@ export default function ServicesPage() {
               href="/consultation"
               className="mt-8 inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/8 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/12"
             >
-              Request Consultation
+              Request Consultation <ArrowRight className="w-4 h-4" />
             </Link>
-          </motion.div>
+          </div>
         </section>
 
         {/* FAQ */}
         <section className="relative px-6 py-24">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUpVariants}
-            className="mx-auto max-w-3xl"
-          >
+          <div className="mx-auto max-w-3xl">
             <h2 className="mb-12 text-3xl font-bold text-white">
               Frequently Asked Questions
             </h2>
@@ -332,20 +266,14 @@ export default function ServicesPage() {
               href="/consultation"
               className="mt-12 inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/8 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/12"
             >
-              Request Consultation
+              Request Consultation <ArrowRight className="w-4 h-4" />
             </Link>
-          </motion.div>
+          </div>
         </section>
 
         {/* CTA */}
         <section className="relative px-6 py-24">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mx-auto max-w-4xl rounded-3xl border border-slate-700/50 bg-slate-900/50 p-12 text-center backdrop-blur-xl md:p-16"
-          >
+          <div className="mx-auto max-w-4xl rounded-3xl border border-white/10 bg-white/5 p-12 text-center md:p-16">
             <h2 className="text-3xl font-bold text-white sm:text-4xl">
               Ready to Begin Your Journey?
             </h2>
@@ -367,7 +295,7 @@ export default function ServicesPage() {
                 Go to Dashboard
               </Link>
             </div>
-          </motion.div>
+          </div>
         </section>
 
         <Footer />

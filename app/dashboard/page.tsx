@@ -4,7 +4,6 @@ import { useState, FormEvent } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ArrowRight } from "lucide-react";
-import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 const FEATURES = [
@@ -63,8 +62,7 @@ export default function DashboardPage() {
 
   return (
     <>
-      <Navbar />
-      <div className="min-h-screen bg-[#030712] pt-16 pb-12">
+      <div className="min-h-screen bg-[#030712]">
         <div className="relative mx-auto max-w-2xl px-6 pb-24">
           {/* Back to Home */}
           <motion.div

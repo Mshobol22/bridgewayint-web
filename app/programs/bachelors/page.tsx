@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ChevronLeft } from "lucide-react";
-import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 const HIGHLIGHTS = [
@@ -118,8 +117,7 @@ const fadeUpVariants = {
 export default function BachelorsPage() {
   return (
     <>
-      <Navbar />
-      <div className="min-h-screen bg-[#030712] pt-16 pb-12">
+      <div className="min-h-screen bg-[#030712]">
         <div className="mx-auto max-w-4xl px-6 pb-24">
           {/* Hero */}
           <motion.section
