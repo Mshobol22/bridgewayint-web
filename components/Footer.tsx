@@ -2,6 +2,7 @@ import Link from "next/link";
 
 const footerLinks = {
   services: [
+    { label: "Pricing", href: "/pricing" },
     { label: "Airport Pickup", href: "/#services" },
     { label: "Housing Support", href: "/#services" },
     { label: "Visa Guidance", href: "/#services" },
@@ -14,6 +15,11 @@ const footerLinks = {
     { label: "Free Consultation", href: "/consultation" },
     { label: "Dashboard", href: "/dashboard" },
     { label: "Contact", href: "/#contact" },
+  ],
+  legal: [
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
+    { label: "Refund Policy", href: "/refund-policy" },
   ],
 };
 
@@ -60,6 +66,24 @@ export function Footer() {
             </h4>
             <ul className="mt-4 space-y-3">
               {footerLinks.company.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-slate-400 transition-colors hover:text-emerald-400"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-300">
+              Legal
+            </h4>
+            <ul className="mt-4 space-y-3">
+              {footerLinks.legal.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}

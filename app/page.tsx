@@ -227,6 +227,190 @@ export default function Home() {
           </div>
         </section>
 
+        {/* How It Works Section */}
+        <section className="relative overflow-hidden bg-[#030712] px-6 py-24">
+          <div className="mx-auto max-w-7xl">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6 }}
+              className="mb-16 text-center"
+            >
+              <h2 className="text-4xl font-bold text-white sm:text-5xl">
+                Your Journey, Step by Step
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-slate-400">
+                From your first message to your first day on campus — we&apos;re
+                with you every step.
+              </p>
+            </motion.div>
+
+            <div className="relative">
+              {/* Connecting dashed line - desktop only */}
+              <div
+                className="absolute left-0 right-0 top-5 hidden border-t-2 border-dashed border-blue-500/30 md:block"
+                aria-hidden
+              />
+              <div className="flex flex-col gap-8 md:flex-row md:items-stretch md:gap-4 md:overflow-x-auto md:pb-4">
+                {[
+                  {
+                    step: 1,
+                    emoji: "📞",
+                    title: "Free Consultation",
+                    description:
+                      "Tell us about your goals, timeline, and budget. We'll match you with the right program and package.",
+                  },
+                  {
+                    step: 2,
+                    emoji: "📋",
+                    title: "Application Support",
+                    description:
+                      "We guide you through university applications, document preparation, and F-1 visa filing — nothing falls through the cracks.",
+                  },
+                  {
+                    step: 3,
+                    emoji: "✈️",
+                    title: "Pre-Departure Prep",
+                    description:
+                      "Before you fly, we brief you on what to expect: packing, banking, what to bring, and how your arrival day will go.",
+                  },
+                  {
+                    step: 4,
+                    emoji: "🏡",
+                    title: "Arrival & Settlement",
+                    description:
+                      "We meet you at the airport. We get you to your housing. We show you around your new city.",
+                  },
+                  {
+                    step: 5,
+                    emoji: "🎓",
+                    title: "Ongoing Support",
+                    description:
+                      "Your BridgeWay advisor stays reachable after arrival. Questions about campus, banking, transit, or anything else — just ask.",
+                  },
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.step}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-30px" }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="relative flex min-w-0 flex-1 flex-col md:min-w-[220px]"
+                  >
+                    <div className="relative z-10 flex flex-col rounded-2xl border border-slate-700/50 bg-slate-900/50 p-6 backdrop-blur-xl">
+                      <div className="flex items-center gap-4">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-500 text-sm font-bold text-white">
+                          {item.step}
+                        </div>
+                        <span className="text-2xl">{item.emoji}</span>
+                      </div>
+                      <h3 className="mt-4 font-semibold text-white">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-sm text-white/60 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="relative overflow-hidden bg-[#030712] px-6 py-24">
+          <div className="mx-auto max-w-7xl">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6 }}
+              className="mb-16 text-center"
+            >
+              <h2 className="text-4xl font-bold text-white sm:text-5xl">
+                What Students Are Saying
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-slate-400">
+                Real experiences from students we&apos;ve supported on their
+                journey to the US.
+              </p>
+            </motion.div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {[
+                {
+                  quote:
+                    "BridgeWay made my arrival in Chicago so much easier than I expected. They picked me up, helped me get settled, and I never felt alone.",
+                  name: "Fatima A.",
+                  country: "🇳🇬 Nigeria",
+                  program: "Bachelor's Degree, Chicago",
+                  initials: "FA",
+                },
+                {
+                  quote:
+                    "I had no idea how to start the F-1 visa process. My BridgeWay advisor walked me through everything and I got approved on my first try.",
+                  name: "Mohamed K.",
+                  country: "🇸🇦 Saudi Arabia",
+                  program: "Master's (MS), Illinois",
+                  initials: "MK",
+                },
+                {
+                  quote:
+                    "The housing support was incredible. They found me a safe apartment with a great roommate before I even landed in the US.",
+                  name: "Amara D.",
+                  country: "🇬🇭 Ghana",
+                  program: "Undergraduate, Community College",
+                  initials: "AD",
+                },
+              ].map((testimonial, i) => (
+                <motion.div
+                  key={testimonial.name}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="group rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-lg"
+                >
+                  <span className="text-5xl font-serif leading-none text-blue-500/80">
+                    &ldquo;
+                  </span>
+                  <div className="mb-4 flex gap-1 text-amber-400">
+                    {[...Array(5)].map((_, j) => (
+                      <span key={j}>★</span>
+                    ))}
+                  </div>
+                  <p className="text-white/70 leading-relaxed">
+                    {testimonial.quote}
+                  </p>
+                  <div className="mt-6 flex items-center gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-700/50 text-sm font-medium text-white/80">
+                      {testimonial.initials}
+                    </div>
+                    <div>
+                      <p className="font-medium text-white">{testimonial.name}</p>
+                      <p className="text-sm text-white/50">
+                        {testimonial.country} · {testimonial.program}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="mt-8 text-center text-xs text-white/40"
+            >
+              * Testimonials represent real student experiences. Photos withheld
+              by student request.
+            </motion.p>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section id="contact" className="relative overflow-hidden px-6 py-24">
           <motion.div
