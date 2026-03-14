@@ -3,7 +3,7 @@
 import { useState, FormEvent } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import { ChevronLeft, ArrowRight, CheckCircle2, Loader2, Check } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
@@ -145,7 +145,7 @@ export default function ConsultationPage() {
           />
         </div>
 
-        <div className="relative mx-auto max-w-2xl px-6 pb-24">
+        <div className="relative mx-auto max-w-6xl px-6 pb-24">
           <AnimatePresence mode="wait">
             {success ? (
               <motion.div
@@ -192,8 +192,10 @@ export default function ConsultationPage() {
                 initial="hidden"
                 animate="visible"
                 variants={{}}
-                className="space-y-10"
+                className="grid gap-10 lg:grid-cols-5"
               >
+                {/* Form column */}
+                <div className="space-y-10 lg:col-span-3">
                 {/* Header */}
                 <header className="space-y-6">
                   <motion.div
@@ -204,9 +206,9 @@ export default function ConsultationPage() {
                   >
                     <Link
                       href="/"
-                      className="inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
+                      className="inline-flex items-center gap-1.5 text-sm text-slate-400 transition-colors hover:text-white"
                     >
-                      <ArrowLeft className="h-4 w-4" />
+                      <ChevronLeft className="h-4 w-4" />
                       Back to Home
                     </Link>
                   </motion.div>
@@ -249,7 +251,7 @@ export default function ConsultationPage() {
                 {/* Form */}
                 <motion.form
                   onSubmit={handleSubmit}
-                  className="space-y-6 rounded-2xl border border-slate-700/50 bg-slate-900/50 p-6 backdrop-blur-xl sm:p-8"
+                  className="mx-auto max-w-2xl space-y-6 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-8 sm:p-10"
                   initial="hidden"
                   animate="visible"
                   variants={fadeUpVariants}
@@ -271,7 +273,7 @@ export default function ConsultationPage() {
                         placeholder="e.g. Amara Okonkwo"
                         value={formData.fullName}
                         onChange={handleChange}
-                        className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20"
+                        className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-blue-500/60 focus:bg-blue-950/20 focus:ring-2 focus:ring-blue-500/20"
                       />
                     </div>
                     <div>
@@ -289,7 +291,7 @@ export default function ConsultationPage() {
                         placeholder="you@example.com"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20"
+                        className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-blue-500/60 focus:bg-blue-950/20 focus:ring-2 focus:ring-blue-500/20"
                       />
                     </div>
                   </div>
@@ -310,7 +312,7 @@ export default function ConsultationPage() {
                         placeholder="+234 800 000 0000"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20"
+                        className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-blue-500/60 focus:bg-blue-950/20 focus:ring-2 focus:ring-blue-500/20"
                       />
                     </div>
                     <div>
@@ -328,7 +330,7 @@ export default function ConsultationPage() {
                         placeholder="e.g. Nigeria"
                         value={formData.country}
                         onChange={handleChange}
-                        className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20"
+                        className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-blue-500/60 focus:bg-blue-950/20 focus:ring-2 focus:ring-blue-500/20"
                       />
                     </div>
                   </div>
@@ -346,7 +348,7 @@ export default function ConsultationPage() {
                       required
                       value={formData.programInterest}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white outline-none transition-colors focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 [&>option]:bg-slate-900"
+                      className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white outline-none transition-colors focus:border-blue-500/60 focus:bg-blue-950/20 focus:ring-2 focus:ring-blue-500/20 [&>option]:bg-[#0f172a] [&>option]:text-white"
                     >
                       <option value="">Select program...</option>
                       {PROGRAM_OPTIONS.map((opt) => (
@@ -370,7 +372,7 @@ export default function ConsultationPage() {
                       required
                       value={formData.serviceNeeded}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white outline-none transition-colors focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 [&>option]:bg-slate-900"
+                      className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white outline-none transition-colors focus:border-blue-500/60 focus:bg-blue-950/20 focus:ring-2 focus:ring-blue-500/20 [&>option]:bg-[#0f172a] [&>option]:text-white"
                     >
                       <option value="">Select service...</option>
                       {SERVICE_OPTIONS.map((opt) => (
@@ -394,7 +396,7 @@ export default function ConsultationPage() {
                       required
                       value={formData.preferredStartDate}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white outline-none transition-colors focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 [&>option]:bg-slate-900"
+                      className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white outline-none transition-colors focus:border-blue-500/60 focus:bg-blue-950/20 focus:ring-2 focus:ring-blue-500/20 [&>option]:bg-[#0f172a] [&>option]:text-white"
                     >
                       <option value="">Select start date...</option>
                       {START_DATE_OPTIONS.map((opt) => (
@@ -420,7 +422,7 @@ export default function ConsultationPage() {
                       placeholder="Tell us anything else about your situation, goals, or questions..."
                       value={formData.additionalInfo}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 resize-none"
+                      className="w-full rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-blue-500/60 focus:bg-blue-950/20 focus:ring-2 focus:ring-blue-500/20 resize-none"
                     />
                   </div>
 
@@ -454,6 +456,49 @@ export default function ConsultationPage() {
                     </p>
                   </div>
                 </motion.form>
+                </div>
+
+                {/* Trust panel - visible on lg+ */}
+                <motion.aside
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="hidden space-y-6 lg:col-span-2 lg:block"
+                >
+                  <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6">
+                    <h3 className="text-lg font-semibold text-white">
+                      Why BridgeWay?
+                    </h3>
+                    <ul className="mt-4 space-y-3">
+                      {[
+                        "Free initial consultation — no commitment",
+                        "F-1 visa specialists with proven results",
+                        "Chicago-based team, available on WhatsApp",
+                        "Students from 15+ countries served",
+                      ].map((point) => (
+                        <li
+                          key={point}
+                          className="flex items-start gap-3 text-sm text-white/80"
+                        >
+                          <span className="mt-0.5 flex shrink-0 items-center justify-center rounded-full bg-green-400/10 p-0.5">
+                            <Check className="h-4 w-4 text-green-400" strokeWidth={2.5} />
+                          </span>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <blockquote className="mt-6 border-l-2 border-blue-500/30 pl-4 italic text-white/70">
+                      &ldquo;My advisor walked me through every step. I
+                      couldn&apos;t have done it without BridgeWay.&rdquo;
+                      <footer className="mt-2 not-italic text-white/50">
+                        — Fatima A., Nigeria
+                      </footer>
+                    </blockquote>
+                    <p className="mt-4 text-sm text-white/50">
+                      ⚡ Average response time: under 24 hours
+                    </p>
+                  </div>
+                </motion.aside>
               </motion.div>
             )}
           </AnimatePresence>

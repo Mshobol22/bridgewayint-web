@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ChevronLeft, ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
@@ -70,9 +70,9 @@ export default function AboutPage() {
             >
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
+                className="inline-flex items-center gap-1.5 text-sm text-slate-400 transition-colors hover:text-white"
               >
-                <ArrowLeft className="h-4 w-4" />
+                <ChevronLeft className="h-4 w-4" />
                 Back to Home
               </Link>
             </motion.div>
@@ -94,7 +94,7 @@ export default function AboutPage() {
             >
               Built for Students,
               <br />
-              <span className="text-white/40">By People Who&apos;ve Been There</span>
+              <span className="text-white/50">By People Who&apos;ve Been There</span>
             </motion.h1>
             <motion.p
               custom={3}
@@ -150,12 +150,12 @@ export default function AboutPage() {
                 key={stat.label}
                 variants={fadeUpVariants}
                 custom={i}
-                className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-6 text-center backdrop-blur-xl"
+                className="rounded-2xl border border-slate-700/50 bg-slate-900/50 px-6 py-8 text-center backdrop-blur-xl"
               >
-                <p className="text-3xl font-bold text-white sm:text-4xl">
+                <p className="text-4xl font-bold text-white">
                   {stat.value}
                 </p>
-                <p className="mt-1 text-sm text-slate-400">{stat.label}</p>
+                <p className="mt-2 text-sm text-white/40">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -211,8 +211,10 @@ export default function AboutPage() {
                 custom={i}
                 className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-6 backdrop-blur-xl"
               >
-                <span className="text-2xl">{value.emoji}</span>
-                <h3 className="mt-3 font-semibold text-white">{value.title}</h3>
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-lg">
+                  {value.emoji}
+                </div>
+                <h3 className="font-semibold text-white">{value.title}</h3>
                 <p className="mt-2 text-sm text-slate-400">
                   {value.description}
                 </p>
@@ -228,19 +230,25 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="mt-16"
           >
-            <div className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-8 backdrop-blur-xl">
-              <h2 className="text-xl font-bold text-white">BridgeWay Team</h2>
-              <p className="mt-2 text-lg text-slate-300">
-                Student Success Advisors
-              </p>
-              <p className="mt-4 text-slate-400">
-                Our advisors bring firsthand F-1 experience and deep knowledge of
-                US universities. We&apos;ve been through the process ourselves
-                and know how to help you avoid pitfalls and succeed.
-              </p>
-              <p className="mt-6 text-sm italic text-slate-500">
-                Full team page coming soon.
-              </p>
+            <h2 className="mb-6 text-2xl font-bold text-white">Our Advisors</h2>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {[
+                { initials: "AA", name: "Advisor A", role: "Student Success Advisor", specialty: "F-1 Visa Specialist" },
+                { initials: "AB", name: "Advisor B", role: "Student Success Advisor", specialty: "Housing & Settlement" },
+                { initials: "AC", name: "Advisor C", role: "Student Success Advisor", specialty: "Academic Admissions" },
+              ].map((advisor) => (
+                <div
+                  key={advisor.initials}
+                  className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-6 backdrop-blur-xl"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-blue-500/20 bg-blue-600/20 text-sm font-semibold text-white">
+                    {advisor.initials}
+                  </div>
+                  <h3 className="mt-4 font-semibold text-white">{advisor.name}</h3>
+                  <p className="mt-1 text-xs text-white/50">{advisor.role}</p>
+                  <p className="mt-2 text-sm text-blue-400/80">{advisor.specialty}</p>
+                </div>
+              ))}
             </div>
           </motion.div>
 

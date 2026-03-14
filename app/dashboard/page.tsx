@@ -3,7 +3,7 @@
 import { useState, FormEvent } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ChevronLeft, ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
@@ -75,9 +75,9 @@ export default function DashboardPage() {
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
+              className="inline-flex items-center gap-1.5 text-sm text-slate-400 transition-colors hover:text-white"
             >
-              <ArrowLeft className="h-4 w-4" />
+              <ChevronLeft className="h-4 w-4" />
               Back to Home
             </Link>
           </motion.div>
@@ -94,14 +94,14 @@ export default function DashboardPage() {
               variants={fadeUpVariants}
               initial="hidden"
               animate="visible"
-              className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-2"
+              className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2"
             >
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500" />
               </span>
-              <span className="text-sm font-medium text-amber-400">
-                Under Construction
+              <span className="text-sm font-medium text-blue-400">
+                Coming Soon
               </span>
             </motion.div>
 
@@ -169,19 +169,19 @@ export default function DashboardPage() {
                     initial={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
-                    <div className="flex flex-col gap-3 sm:flex-row sm:gap-3">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-stretch sm:gap-0">
                       <input
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="you@example.com"
                         required
-                        className="flex-1 rounded-xl border border-slate-600/50 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20"
+                        className="h-12 flex-1 rounded-l-xl rounded-r-xl border border-slate-600/50 bg-slate-800/50 px-4 text-white placeholder-slate-500 outline-none transition-colors focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 sm:rounded-r-none sm:border-r-0"
                       />
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="rounded-xl bg-amber-500 px-6 py-3 font-semibold text-slate-900 transition-colors hover:bg-amber-400 disabled:opacity-70"
+                        className="h-12 rounded-xl bg-blue-500 px-6 font-semibold text-white transition-colors hover:bg-blue-400 disabled:opacity-70 sm:rounded-l-none sm:rounded-r-xl"
                       >
                         {isSubmitting ? "Joining..." : "Notify Me"}
                       </button>
@@ -213,8 +213,10 @@ export default function DashboardPage() {
                 custom={i}
                 className="rounded-2xl border border-slate-700/50 bg-slate-900/50 p-6 backdrop-blur-xl"
               >
-                <span className="text-3xl">{feature.emoji}</span>
-                <h3 className="mt-3 font-semibold text-white">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.05] text-2xl">
+                  {feature.emoji}
+                </div>
+                <h3 className="font-semibold text-white">
                   {feature.title}
                 </h3>
                 <p className="mt-2 text-sm text-slate-400">
@@ -231,7 +233,7 @@ export default function DashboardPage() {
             transition={{ duration: 0.5, delay: 0.9 }}
             className="mt-16"
           >
-            <div className="rounded-2xl border border-blue-500/20 bg-blue-500/10 p-6 backdrop-blur-xl sm:p-8">
+            <div className="rounded-2xl border border-blue-500/20 bg-gradient-to-r from-blue-600/20 to-indigo-600/10 p-6 sm:p-8">
               <p className="text-center text-slate-300 sm:text-left">
                 Ready to get started? Don&apos;t wait for the portal —
               </p>

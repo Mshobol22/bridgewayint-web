@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Inter } from "next/font/google";
+import AnnouncementBar from "@/components/AnnouncementBar";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
 
@@ -37,7 +38,10 @@ export default function RootLayout({
           {/* Deep, rich overlay for crystal-clear legibility */}
           <div className="fixed inset-0 z-[1] bg-slate-950/80" />
           {/* Main content layer */}
-          <div className="relative z-10">{children}</div>
+          <div className="relative z-10">
+            <AnnouncementBar />
+            {children}
+          </div>
           <WhatsAppButton />
         </body>
       </html>

@@ -3,14 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronLeft, FileText, Plane, GraduationCap, Check } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 const TIERS = [
   {
     id: "visa",
-    emoji: "📋",
+    icon: FileText,
     name: "Visa Guidance Package",
     badge: "Most Popular for New Students",
     price: "Starting at $299",
@@ -27,7 +27,7 @@ const TIERS = [
   },
   {
     id: "arrival",
-    emoji: "✈️",
+    icon: Plane,
     name: "Arrival & Settlement Package",
     badge: "Best Value",
     price: "Starting at $599",
@@ -46,7 +46,7 @@ const TIERS = [
   },
   {
     id: "full",
-    emoji: "🎓",
+    icon: GraduationCap,
     name: "Full Journey Package",
     badge: "Complete End-to-End",
     price: "Starting at $999",
@@ -112,9 +112,10 @@ export default function PricingPage() {
             >
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
+                className="inline-flex items-center gap-1.5 text-sm text-white/45 transition-colors hover:text-white"
               >
-                ← Back to Home
+                <ChevronLeft className="h-4 w-4" />
+                Back to Home
               </Link>
             </motion.div>
             <motion.div
@@ -122,7 +123,7 @@ export default function PricingPage() {
               variants={fadeUpVariants}
               initial="hidden"
               animate="visible"
-              className="inline-flex rounded-full border border-slate-600/50 bg-slate-800/30 px-4 py-2 text-sm font-medium text-slate-300"
+              className="inline-flex rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-1.5 text-sm font-medium text-blue-300"
             >
               Transparent Pricing
             </motion.div>
@@ -158,32 +159,36 @@ export default function PricingPage() {
             }}
             className="mt-16 grid gap-6 md:grid-cols-3"
           >
-            {TIERS.map((tier, i) => (
+            {TIERS.map((tier, i) => {
+              const IconComponent = tier.icon;
+              return (
               <motion.div
                 key={tier.id}
                 variants={fadeUpVariants}
                 custom={i}
                 className={`relative flex flex-col rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
                   tier.highlighted
-                    ? "scale-[1.02] border-blue-500/40 bg-slate-900/50 shadow-lg shadow-blue-500/10 backdrop-blur-xl md:scale-105"
+                    ? "scale-[1.02] border-blue-500/40 bg-slate-900/50 backdrop-blur-xl md:scale-105"
                     : "border-slate-700/50 bg-slate-900/30 backdrop-blur-xl hover:border-slate-600/50 hover:shadow-slate-900/50"
                 }`}
+                style={tier.highlighted ? { boxShadow: "0 0 40px rgba(59, 130, 246, 0.15)" } : undefined}
               >
-                {/* Most Recommended ribbon for highlighted tier */}
-                {tier.highlighted && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="inline-flex rounded-full bg-blue-500 px-4 py-1 text-xs font-semibold text-white shadow-lg">
-                      Most Recommended
-                    </span>
+                <div className="mb-4 flex flex-wrap items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-blue-500/20 bg-blue-600/20 p-2">
+                    <IconComponent className="h-5 w-5 text-blue-400" strokeWidth={1.5} />
                   </div>
-                )}
-
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-slate-800/50 text-2xl">
-                  {tier.emoji}
+                  <div className="flex flex-1 flex-wrap items-center gap-2">
+                    {tier.highlighted ? (
+                      <span className="inline-flex rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
+                        Most Recommended
+                      </span>
+                    ) : (
+                      <span className="text-xs font-medium uppercase tracking-wider text-slate-400">
+                        {tier.badge}
+                      </span>
+                    )}
+                  </div>
                 </div>
-                <span className="mb-2 text-xs font-medium uppercase tracking-wider text-slate-400">
-                  {tier.badge}
-                </span>
                 <h2 className="text-xl font-bold text-white">{tier.name}</h2>
                 <p className="mt-2 text-2xl font-bold text-white">{tier.price}</p>
                 <p className="mt-2 text-sm text-slate-400">{tier.description}</p>
@@ -194,7 +199,9 @@ export default function PricingPage() {
                       key={feature}
                       className="flex items-start gap-3 text-sm text-slate-300"
                     >
-                      <span className="mt-0.5 shrink-0 text-green-400">✓</span>
+                      <span className="mt-0.5 flex shrink-0 items-center justify-center rounded-full bg-green-400/10 p-0.5">
+                        <Check className="h-4 w-4 text-green-400" strokeWidth={2.5} />
+                      </span>
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -211,7 +218,8 @@ export default function PricingPage() {
                   Get Started
                 </Link>
               </motion.div>
-            ))}
+            );
+            })}
           </motion.div>
 
           {/* What's Not Included */}
@@ -260,13 +268,13 @@ export default function PricingPage() {
                       className={`h-5 w-5 shrink-0 text-slate-400 transition-transform ${openFaqIndex === i ? "rotate-180" : ""}`}
                     />
                   </button>
-                  <AnimatePresence>
+                  <AnimatePresence initial={false}>
                     {openFaqIndex === i && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25 }}
+                        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                         className="overflow-hidden"
                       >
                         <p className="border-t border-slate-700/50 px-6 py-4 text-slate-400">
@@ -286,17 +294,19 @@ export default function PricingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mt-16 text-center"
+            className="mt-16"
           >
-            <p className="mb-6 text-slate-400">
-              Not sure which package is right for you?
-            </p>
-            <Link
-              href="/consultation"
-              className="inline-flex rounded-full bg-white px-8 py-3.5 font-semibold text-slate-900 transition-all hover:bg-slate-100"
-            >
-              Book a Free 15-Minute Call
-            </Link>
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-8 text-center">
+              <p className="mb-6 text-white/70">
+                Not sure which package is right for you?
+              </p>
+              <Link
+                href="/consultation"
+                className="inline-flex rounded-xl bg-white px-6 py-3 font-semibold text-black transition-colors hover:bg-white/90"
+              >
+                Book a Free 15-Minute Call
+              </Link>
+            </div>
           </motion.div>
         </div>
         <Footer />

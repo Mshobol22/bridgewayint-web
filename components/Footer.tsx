@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Instagram, Linkedin, Youtube } from "lucide-react";
 
 const footerLinks = {
   services: [
@@ -28,18 +29,48 @@ export function Footer() {
     <footer className="border-t border-slate-800/50 bg-slate-950/80 backdrop-blur-sm">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div className="lg:col-span-2">
+          <div>
             <Link
               href="/"
               className="text-2xl font-semibold text-white"
             >
               BridgeWay<span className="text-emerald-400"> International</span>
             </Link>
-            <p className="mt-4 max-w-md text-slate-400">
+            <p className="mt-4 max-w-sm text-slate-400">
               Your trusted global gateway to US universities. We provide
               end-to-end support for international students—from airport pickup
               to housing, visa guidance, and orientation.
             </p>
+            <div className="mt-4 flex gap-2">
+              <a
+                href="#"
+                className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] bg-white/5 transition-all hover:bg-white/10"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-4 w-4" />
+              </a>
+              <a
+                href="#"
+                className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] bg-white/5 transition-all hover:bg-white/10"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+              <a
+                href="#"
+                className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] bg-white/5 transition-all hover:bg-white/10"
+                aria-label="TikTok"
+              >
+                <span className="text-xs font-bold">T</span>
+              </a>
+              <a
+                href="#"
+                className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] bg-white/5 transition-all hover:bg-white/10"
+                aria-label="YouTube"
+              >
+                <Youtube className="h-4 w-4" />
+              </a>
+            </div>
           </div>
 
           <div>
@@ -51,7 +82,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-slate-400 transition-colors hover:text-emerald-400"
+                    className="text-slate-400 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -69,7 +100,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-slate-400 transition-colors hover:text-emerald-400"
+                    className="text-slate-400 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -87,7 +118,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-slate-400 transition-colors hover:text-emerald-400"
+                    className="text-slate-400 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -97,14 +128,14 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800/50 pt-8 md:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
           <p className="text-sm text-slate-500">
             © {new Date().getFullYear()} BridgeWay International. All rights
             reserved.
           </p>
-          <p className="text-sm text-slate-600">
+          <span className="rounded-full border border-white/[0.08] bg-white/5 px-3 py-1 text-xs text-white/40">
             A Barakah Chaser Platform
-          </p>
+          </span>
         </div>
       </div>
     </footer>
