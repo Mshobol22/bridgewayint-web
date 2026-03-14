@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ChevronLeft } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
@@ -23,13 +24,14 @@ export default function PrivacyPage() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-[#030712] pt-24">
+      <div className="min-h-screen bg-[#030712] pt-16 pb-12">
         <div className="mx-auto max-w-3xl px-6 pb-24">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
+            className="inline-flex items-center gap-1.5 text-sm text-white/40 transition-colors hover:text-white"
           >
-            ← Back to Home
+            <ChevronLeft className="h-4 w-4" />
+            Back to Home
           </Link>
 
           <header className="mt-8">

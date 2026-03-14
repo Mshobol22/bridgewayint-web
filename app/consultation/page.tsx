@@ -118,7 +118,7 @@ export default function ConsultationPage() {
   return (
     <>
       <Navbar />
-      <div className="relative min-h-screen overflow-hidden bg-[#030712] pt-24">
+      <div className="relative min-h-screen overflow-hidden bg-[#030712] pt-16 pb-12">
         {/* Background decorations - pointer-events-none */}
         <div className="pointer-events-none absolute inset-0">
           {/* Blue radial glow top-left */}
@@ -206,7 +206,7 @@ export default function ConsultationPage() {
                   >
                     <Link
                       href="/"
-                      className="inline-flex items-center gap-1.5 text-sm text-slate-400 transition-colors hover:text-white"
+                      className="inline-flex items-center gap-1.5 text-sm text-white/40 transition-colors hover:text-white"
                     >
                       <ChevronLeft className="h-4 w-4" />
                       Back to Home

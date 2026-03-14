@@ -7,11 +7,9 @@ import {
   Award,
   BookOpen,
   ArrowRight,
-  Sparkles,
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { ProgramsParallax } from "@/components/ProgramsParallax";
 
 const programs = [
   {
@@ -64,48 +62,48 @@ export default function ProgramsPage() {
   return (
     <>
       <Navbar />
-      <ProgramsParallax>
-        <main className="min-h-screen pt-24">
-          {/* Hero - centered over parallax */}
-          <section className="relative flex min-h-[70vh] flex-col items-center justify-center px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="mx-auto max-w-4xl text-center"
-            >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                className="mb-4 inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm text-amber-300/90"
-              >
-                <Sparkles className="h-4 w-4" />
-                Educational Tracks
-              </motion.div>
-              <h1 className="text-5xl font-bold tracking-tight text-white drop-shadow-lg sm:text-6xl md:text-7xl">
-                Programs
-              </h1>
-              <p className="mt-4 text-sm font-medium uppercase tracking-[0.2em] text-amber-200/80 sm:text-base">
-                Undergrad • Bachelor&apos;s • Master&apos;s
-              </p>
-              <p className="mx-auto mt-8 max-w-2xl text-2xl font-medium text-amber-50/95 drop-shadow-md sm:text-3xl md:text-4xl">
-                The Ascent of Academic Achievement
-              </p>
-            </motion.div>
-          </section>
+      <main className="relative min-h-screen bg-[#030712] pt-16 pb-12">
+        {/* Subtle blue radial glow */}
+        <div
+          className="pointer-events-none absolute top-0 right-0 h-[400px] w-[400px] bg-blue-600/8 blur-[140px]"
+          aria-hidden
+        />
 
-          {/* Program cards - with backdrop for readability */}
-          <section className="relative px-6 py-16">
-            <div className="absolute inset-0 bg-slate-950/70" />
-            <div className="relative mx-auto max-w-7xl">
-              <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-                className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-              >
+        {/* Hero - single section, no background image */}
+        <section className="relative flex min-h-[50vh] flex-col items-center justify-center px-6 py-16">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto max-w-4xl text-center"
+          >
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+              className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300"
+            >
+              Educational Tracks
+            </motion.div>
+            <h1 className="text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl">
+              Programs
+            </h1>
+            <p className="mt-4 text-sm font-medium uppercase tracking-[0.2em] text-slate-400 sm:text-base">
+              Undergrad • Bachelor&apos;s • Master&apos;s
+            </p>
+          </motion.div>
+        </section>
+
+        {/* Program tier cards */}
+        <section className="relative px-6 py-16">
+          <div className="relative mx-auto max-w-7xl">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+            >
               {programs.map((program) => {
                 const IconComponent = program.icon;
                 return (
@@ -115,10 +113,7 @@ export default function ProgramsPage() {
                     whileHover={{ y: -4, transition: { duration: 0.2 } }}
                   >
                     <Link href={program.href}>
-                      <div className="group glass-card relative flex h-full flex-col overflow-hidden rounded-2xl p-8 transition-all duration-300 hover:border-slate-600/30 hover:shadow-xl hover:shadow-emerald-500/5">
-                        <div
-                          className={`absolute inset-0 bg-gradient-to-br ${program.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
-                        />
+                      <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/4 p-8 transition-all hover:border-white/20">
                         <div className="relative flex flex-1 flex-col">
                           <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400 transition-colors group-hover:bg-emerald-500/20">
                             <IconComponent className="h-7 w-7" strokeWidth={1.5} />
@@ -156,7 +151,6 @@ export default function ProgramsPage() {
 
         <Footer />
       </main>
-    </ProgramsParallax>
     </>
   );
 }

@@ -53,7 +53,7 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-[#030712] pt-24">
+      <div className="min-h-screen bg-[#030712] pt-16 pb-12">
         <div className="relative mx-auto max-w-4xl px-6 pb-24">
           {/* 1. Hero */}
           <motion.div
@@ -70,7 +70,7 @@ export default function AboutPage() {
             >
               <Link
                 href="/"
-                className="inline-flex items-center gap-1.5 text-sm text-slate-400 transition-colors hover:text-white"
+                className="inline-flex items-center gap-1.5 text-sm text-white/40 transition-colors hover:text-white"
               >
                 <ChevronLeft className="h-4 w-4" />
                 Back to Home

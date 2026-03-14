@@ -13,7 +13,6 @@ import {
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { ServicesParallax } from "@/components/ServicesParallax";
 
 const fadeUpVariants = {
   hidden: { y: 24, opacity: 0 },
@@ -134,34 +133,49 @@ export default function ServicesPage() {
   return (
     <>
       <Navbar />
-      <ServicesParallax>
-        <main className="min-h-screen pt-24">
-          {/* Hero - centered over parallax */}
-          <section className="relative flex min-h-[60vh] flex-col items-center justify-center px-6">
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeUpVariants}
-              className="mx-auto max-w-4xl text-center"
-            >
-              <h1 className="text-4xl font-bold text-white drop-shadow-lg sm:text-5xl md:text-6xl">
-                Our Services
-              </h1>
-              <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-200 drop-shadow-sm">
-                End-to-end support for international students—from arrival to
-                orientation. Everything you need to succeed in the US.
-              </p>
-            </motion.div>
-          </section>
+      <main className="relative min-h-screen bg-[#030712] pt-16 pb-12">
+        {/* Dot grid overlay */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.015]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+            backgroundSize: "24px 24px",
+          }}
+          aria-hidden
+        />
+        {/* Blue radial glow top-center */}
+        <div
+          className="pointer-events-none absolute top-0 left-1/2 h-[500px] w-[500px] -translate-x-1/2 bg-blue-600/8 blur-[160px]"
+          aria-hidden
+        />
 
-          {/* Service Sections - backdrop for readability */}
-          <section className="relative px-6 py-16">
-            <div className="absolute inset-0 bg-slate-950/75" />
-            <div className="relative mx-auto max-w-6xl space-y-24">
+        {/* Hero - clean dark background, centered, generous padding */}
+        <section className="relative flex min-h-[50vh] flex-col items-center justify-center px-6 py-24">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeUpVariants}
+            className="mx-auto max-w-4xl text-center"
+          >
+            <h1 className="text-4xl font-bold text-white sm:text-5xl md:text-6xl">
+              Our Services
+            </h1>
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-200">
+              End-to-end support for international students—from arrival to
+              orientation. Everything you need to succeed in the US.
+            </p>
+          </motion.div>
+        </section>
+
+        {/* Service Sections - plain dark background, content-only */}
+        <section className="relative px-6">
+          <div className="mx-auto max-w-6xl">
             {SERVICES.map((service, i) => {
               const IconComponent = service.icon;
               const isReversed = i % 2 === 1;
 
+              const isLast = i === SERVICES.length - 1;
               return (
                 <motion.div
                   key={service.id}
@@ -170,9 +184,9 @@ export default function ServicesPage() {
                   whileInView="visible"
                   viewport={{ once: true, margin: "-80px" }}
                   variants={fadeUpVariants}
-                  className={`flex flex-col gap-12 md:flex-row md:items-center md:gap-16 ${
+                  className={`flex flex-col gap-12 py-20 md:flex-row md:items-center md:gap-16 ${
                     isReversed ? "md:flex-row-reverse" : ""
-                  }`}
+                  } ${!isLast ? "border-b border-white/5" : ""}`}
                 >
                   <div className="flex-1">
                     <div
@@ -218,7 +232,7 @@ export default function ServicesPage() {
 
                     <Link
                       href="/consultation"
-                      className="mt-8 inline-block rounded-full bg-emerald-500 px-6 py-3 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:bg-emerald-400 hover:shadow-emerald-500/40"
+                      className="mt-8 inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/8 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/12"
                     >
                       Request Consultation
                     </Link>
@@ -239,41 +253,36 @@ export default function ServicesPage() {
                 </motion.div>
               );
             })}
-            </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Testimonials - with backdrop */}
-          <section className="relative px-6 py-24">
-            <div className="absolute inset-0 bg-slate-950/80" />
-            <div className="relative">
+        {/* Testimonials */}
+        <section className="relative px-6 py-24">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUpVariants}
-            className="mx-auto max-w-3xl rounded-2xl border border-slate-700/50 bg-slate-900/50 p-8 backdrop-blur-xl md:p-12"
+            className="mx-auto max-w-3xl rounded-2xl border border-white/[0.08] bg-white/[0.03] p-8 md:p-12"
           >
-            <blockquote className="text-xl leading-relaxed text-slate-300 md:text-2xl">
+            <blockquote className="border-l-2 border-blue-500/50 pl-5 text-xl italic leading-relaxed text-white/60 md:text-2xl">
               &ldquo;BridgeWay helped me find housing before I arrived and
               picked me up from the airport. The transition was very smooth.&rdquo;
             </blockquote>
-            <cite className="mt-6 block text-emerald-400 not-italic">
+            <cite className="mt-6 block text-white/50 not-italic">
               — International Student
             </cite>
             <Link
               href="/consultation"
-              className="mt-8 inline-block rounded-full bg-emerald-500 px-6 py-3 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:bg-emerald-400"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/8 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/12"
             >
               Request Consultation
             </Link>
           </motion.div>
-            </div>
-          </section>
+        </section>
 
-          {/* FAQ - with backdrop */}
-          <section className="relative px-6 py-24">
-            <div className="absolute inset-0 bg-slate-950/80" />
-            <div className="relative">
+        {/* FAQ */}
+        <section className="relative px-6 py-24">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -321,18 +330,15 @@ export default function ServicesPage() {
             </div>
             <Link
               href="/consultation"
-              className="mt-12 inline-block rounded-full bg-emerald-500 px-8 py-3.5 font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all hover:bg-emerald-400"
+              className="mt-12 inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/8 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/12"
             >
               Request Consultation
             </Link>
           </motion.div>
-            </div>
-          </section>
+        </section>
 
-          {/* CTA - with backdrop */}
-          <section className="relative px-6 py-24">
-            <div className="absolute inset-0 bg-slate-950/85" />
-            <div className="relative">
+        {/* CTA */}
+        <section className="relative px-6 py-24">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -356,18 +362,16 @@ export default function ServicesPage() {
               </Link>
               <Link
                 href="/dashboard"
-                className="rounded-full glass px-8 py-3.5 font-medium text-slate-200 transition-all hover:bg-slate-800/50"
+                className="rounded-full border border-white/10 bg-white/5 px-8 py-3.5 font-medium text-slate-200 transition-all hover:bg-white/10"
               >
                 Go to Dashboard
               </Link>
             </div>
           </motion.div>
-            </div>
-          </section>
+        </section>
 
-          <Footer />
-        </main>
-      </ServicesParallax>
+        <Footer />
+      </main>
     </>
   );
 }

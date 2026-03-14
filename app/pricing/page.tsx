@@ -3,7 +3,15 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ChevronLeft, FileText, Plane, GraduationCap, Check } from "lucide-react";
+import {
+  FileText,
+  Plane,
+  GraduationCap,
+  Check,
+  Sparkles,
+  Plus,
+  Minus,
+} from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
@@ -12,8 +20,8 @@ const TIERS = [
     id: "visa",
     icon: FileText,
     name: "Visa Guidance Package",
-    badge: "Most Popular for New Students",
-    price: "Starting at $299",
+    badge: "Pre-Arrival",
+    price: "$299",
     description:
       "Everything you need to navigate the F-1 visa process with confidence.",
     features: [
@@ -29,8 +37,8 @@ const TIERS = [
     id: "arrival",
     icon: Plane,
     name: "Arrival & Settlement Package",
-    badge: "Best Value",
-    price: "Starting at $599",
+    badge: "Arrival",
+    price: "$599",
     description:
       "Land in the US stress-free. We handle your arrival, housing, and first weeks in the city.",
     features: [
@@ -49,7 +57,7 @@ const TIERS = [
     icon: GraduationCap,
     name: "Full Journey Package",
     badge: "Complete End-to-End",
-    price: "Starting at $999",
+    price: "$999",
     description:
       "Total peace of mind from first inquiry to first day of class — and beyond.",
     features: [
@@ -95,14 +103,20 @@ export default function PricingPage() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-[#030712] pt-24">
-        <div className="mx-auto max-w-6xl px-6 pb-24">
-          {/* Header */}
+      <div className="relative min-h-screen bg-[#030712] pt-16 pb-12">
+        <div className="relative mx-auto max-w-6xl px-6 pb-24">
+          {/* Radial glow top-center */}
+          <div
+            className="pointer-events-none absolute top-0 left-1/2 h-[400px] w-[600px] -translate-x-1/2 bg-blue-600/8 blur-[120px]"
+            aria-hidden
+          />
+
+          {/* Header - center-aligned */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={{}}
-            className="space-y-6"
+            className="relative z-10 mx-auto max-w-3xl space-y-6 text-center"
           >
             <motion.div
               custom={0}
@@ -110,25 +124,13 @@ export default function PricingPage() {
               initial="hidden"
               animate="visible"
             >
-              <Link
-                href="/"
-                className="inline-flex items-center gap-1.5 text-sm text-white/45 transition-colors hover:text-white"
-              >
-                <ChevronLeft className="h-4 w-4" />
-                Back to Home
-              </Link>
-            </motion.div>
-            <motion.div
-              custom={1}
-              variants={fadeUpVariants}
-              initial="hidden"
-              animate="visible"
-              className="inline-flex rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-1.5 text-sm font-medium text-blue-300"
-            >
-              Transparent Pricing
+              <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-1.5 text-sm font-medium text-blue-300">
+                <Sparkles className="h-4 w-4" />
+                Transparent Pricing
+              </span>
             </motion.div>
             <motion.h1
-              custom={2}
+              custom={1}
               variants={fadeUpVariants}
               initial="hidden"
               animate="visible"
@@ -137,11 +139,11 @@ export default function PricingPage() {
               Simple, Honest Packages
             </motion.h1>
             <motion.p
-              custom={3}
+              custom={2}
               variants={fadeUpVariants}
               initial="hidden"
               animate="visible"
-              className="max-w-2xl text-slate-400"
+              className="mx-auto max-w-2xl text-slate-400"
             >
               No hidden fees. Choose the level of support that fits your journey
               — you can always upgrade later.
@@ -157,68 +159,88 @@ export default function PricingPage() {
                 transition: { staggerChildren: 0.12, delayChildren: 0.3 },
               },
             }}
-            className="mt-16 grid gap-6 md:grid-cols-3"
+            className="relative z-10 mt-16 grid gap-6 md:grid-cols-3"
           >
             {TIERS.map((tier, i) => {
               const IconComponent = tier.icon;
+              const isHighlighted = tier.highlighted;
               return (
-              <motion.div
-                key={tier.id}
-                variants={fadeUpVariants}
-                custom={i}
-                className={`relative flex flex-col rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
-                  tier.highlighted
-                    ? "scale-[1.02] border-blue-500/40 bg-slate-900/50 backdrop-blur-xl md:scale-105"
-                    : "border-slate-700/50 bg-slate-900/30 backdrop-blur-xl hover:border-slate-600/50 hover:shadow-slate-900/50"
-                }`}
-                style={tier.highlighted ? { boxShadow: "0 0 40px rgba(59, 130, 246, 0.15)" } : undefined}
-              >
-                <div className="mb-4 flex flex-wrap items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-blue-500/20 bg-blue-600/20 p-2">
-                    <IconComponent className="h-5 w-5 text-blue-400" strokeWidth={1.5} />
-                  </div>
-                  <div className="flex flex-1 flex-wrap items-center gap-2">
-                    {tier.highlighted ? (
-                      <span className="inline-flex rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
+                <motion.div
+                  key={tier.id}
+                  variants={fadeUpVariants}
+                  custom={i}
+                  className={`relative flex min-h-[580px] flex-col rounded-2xl p-8 transition-all duration-300 ${
+                    isHighlighted
+                      ? "scale-[1.02] border-2 border-blue-500/50 bg-gradient-to-b from-blue-950/60 to-[#030712] shadow-[0_0_60px_rgba(59,130,246,0.12)]"
+                      : "border border-white/[0.08] bg-white/[0.03]"
+                  }`}
+                >
+                  {/* Top: badge + Most Recommended */}
+                  <div className="mb-4 flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-medium uppercase tracking-wider text-white/50">
+                      {tier.badge}
+                    </span>
+                    {isHighlighted && (
+                      <span className="rounded-full bg-blue-600 px-3 py-1 text-xs font-medium text-white">
                         Most Recommended
-                      </span>
-                    ) : (
-                      <span className="text-xs font-medium uppercase tracking-wider text-slate-400">
-                        {tier.badge}
                       </span>
                     )}
                   </div>
-                </div>
-                <h2 className="text-xl font-bold text-white">{tier.name}</h2>
-                <p className="mt-2 text-2xl font-bold text-white">{tier.price}</p>
-                <p className="mt-2 text-sm text-slate-400">{tier.description}</p>
 
-                <ul className="mt-6 flex-1 space-y-3">
-                  {tier.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-start gap-3 text-sm text-slate-300"
-                    >
-                      <span className="mt-0.5 flex shrink-0 items-center justify-center rounded-full bg-green-400/10 p-0.5">
-                        <Check className="h-4 w-4 text-green-400" strokeWidth={2.5} />
-                      </span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                  {/* Icon */}
+                  <div
+                    className={`mb-4 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border ${
+                      isHighlighted
+                        ? "border-blue-500/30 bg-blue-600/20"
+                        : "border-white/[0.08] bg-white/[0.03]"
+                    }`}
+                  >
+                    <IconComponent
+                      className={`h-6 w-6 ${isHighlighted ? "text-blue-400" : "text-white/70"}`}
+                      strokeWidth={1.5}
+                    />
+                  </div>
 
-                <Link
-                  href="/consultation"
-                  className={`mt-8 block w-full rounded-xl py-3.5 text-center font-semibold transition-all ${
-                    tier.highlighted
-                      ? "bg-blue-500 text-white hover:bg-blue-400"
-                      : "bg-emerald-500 text-white hover:bg-emerald-400"
-                  }`}
-                >
-                  Get Started
-                </Link>
-              </motion.div>
-            );
+                  {/* Price */}
+                  <p className="text-sm text-white/40">Starting at</p>
+                  <p className="text-4xl font-bold text-white">{tier.price}</p>
+
+                  {/* Description */}
+                  <p className="mb-6 mt-2 text-sm text-white/55">
+                    {tier.description}
+                  </p>
+
+                  {/* Divider */}
+                  <div className="my-6 border-t border-white/[0.08]" />
+
+                  {/* Features */}
+                  <ul className="flex-1 space-y-3">
+                    {tier.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex items-start gap-3"
+                      >
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-green-500/20 bg-green-500/10 p-0.5">
+                          <Check className="h-3 w-3 text-green-400" strokeWidth={2.5} />
+                        </span>
+                        <span className="text-sm text-white/75">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA */}
+                  <Link
+                    href="/consultation"
+                    className={`mt-auto block w-full rounded-xl py-3 text-center font-semibold transition-all ${
+                      isHighlighted
+                        ? "bg-blue-600 text-white hover:bg-blue-500"
+                        : "border border-white/15 text-white hover:bg-white/5"
+                    }`}
+                  >
+                    Get Started
+                  </Link>
+                </motion.div>
+              );
             })}
           </motion.div>
 
@@ -228,10 +250,10 @@ export default function PricingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mt-16"
+            className="relative z-10 mt-16"
           >
-            <div className="rounded-xl border border-slate-700/50 bg-slate-900/20 px-6 py-4 backdrop-blur-sm">
-              <p className="text-center text-sm text-slate-400">
+            <div className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-6 py-4">
+              <p className="text-center text-sm text-white/55">
                 Packages do not include: university tuition fees, visa
                 application government fees ($160 SEVIS + DS-160), flight costs,
                 or accommodation rent. BridgeWay charges for our support services
@@ -246,27 +268,31 @@ export default function PricingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mt-16"
+            className="relative z-10 mt-16"
           >
             <h2 className="mb-6 text-2xl font-bold text-white">
               Frequently Asked Questions
             </h2>
-            <div className="space-y-3">
+            <div className="space-y-0">
               {FAQ_ITEMS.map((item, i) => (
                 <div
                   key={i}
-                  className="overflow-hidden rounded-xl border border-slate-700/50 bg-slate-900/30 backdrop-blur-sm"
+                  className="border-b border-white/[0.08] py-5"
                 >
                   <button
                     onClick={() =>
                       setOpenFaqIndex(openFaqIndex === i ? null : i)
                     }
-                    className="flex w-full items-center justify-between px-6 py-4 text-left text-white transition-colors hover:bg-slate-800/30"
+                    className="flex w-full cursor-pointer items-center justify-between gap-4 text-left"
                   >
-                    <span className="font-medium">{item.q}</span>
-                    <ChevronDown
-                      className={`h-5 w-5 shrink-0 text-slate-400 transition-transform ${openFaqIndex === i ? "rotate-180" : ""}`}
-                    />
+                    <span className="font-medium text-white">{item.q}</span>
+                    <span className="shrink-0 text-white/40">
+                      {openFaqIndex === i ? (
+                        <Minus className="h-5 w-5" strokeWidth={1.5} />
+                      ) : (
+                        <Plus className="h-5 w-5" strokeWidth={1.5} />
+                      )}
+                    </span>
                   </button>
                   <AnimatePresence initial={false}>
                     {openFaqIndex === i && (
@@ -277,7 +303,7 @@ export default function PricingPage() {
                         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                         className="overflow-hidden"
                       >
-                        <p className="border-t border-slate-700/50 px-6 py-4 text-slate-400">
+                        <p className="pt-3 text-sm leading-relaxed text-white/55">
                           {item.a}
                         </p>
                       </motion.div>
@@ -294,9 +320,9 @@ export default function PricingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mt-16"
+            className="relative z-10 mt-16"
           >
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-8 text-center">
+            <div className="mx-auto mb-16 max-w-2xl rounded-2xl border border-white/[0.08] bg-white/[0.03] p-10 text-center">
               <p className="mb-6 text-white/70">
                 Not sure which package is right for you?
               </p>

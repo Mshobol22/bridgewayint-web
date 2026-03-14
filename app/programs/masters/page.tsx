@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ChevronLeft } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
@@ -115,7 +116,7 @@ export default function MastersPage() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-[#030712] pt-24">
+      <div className="min-h-screen bg-[#030712] pt-16 pb-12">
         <div className="mx-auto max-w-4xl px-6 pb-24">
           {/* Hero */}
           <motion.section
@@ -127,9 +128,10 @@ export default function MastersPage() {
             <motion.div variants={fadeUpVariants} initial="hidden" animate="visible">
               <Link
                 href="/programs"
-                className="text-sm text-slate-400 transition-colors hover:text-emerald-400"
+                className="inline-flex items-center gap-1.5 text-sm text-white/40 transition-colors hover:text-white"
               >
-                ← Back to Programs
+                <ChevronLeft className="h-4 w-4" />
+                Back to Programs
               </Link>
             </motion.div>
             <motion.div

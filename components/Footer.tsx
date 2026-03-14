@@ -34,38 +34,38 @@ export function Footer() {
               href="/"
               className="text-2xl font-semibold text-white"
             >
-              BridgeWay<span className="text-emerald-400"> International</span>
+              BridgeWay<span className="font-normal text-white/60"> International</span>
             </Link>
             <p className="mt-4 max-w-sm text-slate-400">
               Your trusted global gateway to US universities. We provide
               end-to-end support for international students—from airport pickup
               to housing, visa guidance, and orientation.
             </p>
-            <div className="mt-4 flex gap-2">
+            <div className="mt-4 flex gap-3">
               <a
                 href="#"
-                className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] bg-white/5 transition-all hover:bg-white/10"
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-white/5 text-white/50 transition-all hover:border-white/15 hover:bg-white/10 hover:text-white"
                 aria-label="Instagram"
               >
                 <Instagram className="h-4 w-4" />
               </a>
               <a
                 href="#"
-                className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] bg-white/5 transition-all hover:bg-white/10"
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-white/5 text-white/50 transition-all hover:border-white/15 hover:bg-white/10 hover:text-white"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-4 w-4" />
               </a>
               <a
                 href="#"
-                className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] bg-white/5 transition-all hover:bg-white/10"
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-white/5 text-white/50 transition-all hover:border-white/15 hover:bg-white/10 hover:text-white"
                 aria-label="TikTok"
               >
-                <span className="text-xs font-bold">T</span>
+                <span className="text-xs font-bold">TT</span>
               </a>
               <a
                 href="#"
-                className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] bg-white/5 transition-all hover:bg-white/10"
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-white/5 text-white/50 transition-all hover:border-white/15 hover:bg-white/10 hover:text-white"
                 aria-label="YouTube"
               >
                 <Youtube className="h-4 w-4" />
@@ -128,12 +128,12 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
-          <p className="text-sm text-slate-500">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 md:flex-row">
+          <p className="text-xs text-white/30">
             © {new Date().getFullYear()} BridgeWay International. All rights
             reserved.
           </p>
-          <span className="rounded-full border border-white/[0.08] bg-white/5 px-3 py-1 text-xs text-white/40">
+          <span className="inline-block rounded-full border border-white/[0.08] bg-white/5 px-3 py-1 text-xs text-white/40">
             A Barakah Chaser Platform
           </span>
         </div>
