@@ -367,7 +367,7 @@ export default function Home() {
                     "The housing support was incredible. They found me a safe apartment with a great roommate before I even landed in the US.",
                   name: "Amara D.",
                   country: "Ghana",
-                  program: "Undergraduate, Community College",
+                  program: "Bachelor's Degree, Chicago",
                   initials: "AD",
                 },
               ].map((testimonial, i) => (

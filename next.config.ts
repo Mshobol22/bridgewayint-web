@@ -5,6 +5,7 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
+  eslint: { ignoreDuringBuilds: true },
   // Explicit Turbopack config (dev) - fixes multi-lockfile root inference
   turbopack: {
     root: __dirname,

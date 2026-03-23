@@ -44,8 +44,7 @@ app/
 ├── page.tsx              # Landing (hero, bento grid, footer)
 ├── layout.tsx            # Root layout + ClerkProvider
 ├── programs/
-│   ├── page.tsx          # Program tracks (Undergrad, Bachelor's, Master's)
-│   ├── undergraduate/
+│   ├── page.tsx          # Program tracks (Bachelor's, Master's)
 │   ├── bachelors/
 │   └── masters/
 ├── dashboard/

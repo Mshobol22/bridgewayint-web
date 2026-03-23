@@ -9,7 +9,6 @@ import { ArrowLeft, ArrowRight, Upload, User, Globe, Loader2 } from "lucide-reac
 import { supabase } from "@/lib/supabase/client";
 
 const PROGRAMS = [
-  { value: "undergrad", label: "Undergraduate" },
   { value: "bachelors", label: "Bachelor's" },
   { value: "masters", label: "Master's" },
 ];

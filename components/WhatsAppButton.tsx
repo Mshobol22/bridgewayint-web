@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 // Replace with your real WhatsApp number (country code + number, no + or spaces)
-const WHATSAPP_NUMBER = "PLACEHOLDER_NUMBER";
+const WHATSAPP_NUMBER = "251985045754";
 
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Hi%20BridgeWay!%20I'm%20interested%20in%20learning%20more%20about%20your%20student%20support%20services.`;
 

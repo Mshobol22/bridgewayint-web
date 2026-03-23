@@ -7,7 +7,6 @@ import { ArrowRight, CheckCircle2, Loader2, Check } from "lucide-react";
 import { Footer } from "@/components/Footer";
 
 const PROGRAM_OPTIONS = [
-  "Undergraduate / Associate Degree",
   "Bachelor's Degree",
   "Master's Degree (MBA)",
   "Master's Degree (MS / MA)",

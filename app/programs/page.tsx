@@ -1,20 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { GraduationCap, BookOpen, FlaskConical, ArrowRight } from "lucide-react";
+import { GraduationCap, FlaskConical, ArrowRight } from "lucide-react";
 
 const programs = [
-  {
-    icon: BookOpen,
-    badge: "2-Year Programs",
-    title: "Undergraduate",
-    subtitle: "Associate Degrees & Community College Pathways",
-    description:
-      "Build a strong academic foundation with affordable 2-year associate degree programs. Many include guaranteed transfer pathways to top 4-year universities.",
-    highlights: ["2-year programs", "Community college pathways", "Transfer options available"],
-    href: "/programs/undergraduate",
-    color: "blue",
-  },
   {
     icon: GraduationCap,
     badge: "4-Year Programs",
@@ -54,13 +43,13 @@ export default function ProgramsPage() {
         </div>
         <h1 className="text-5xl font-bold mb-3 tracking-tight">Programs</h1>
         <p className="text-white/50 text-lg tracking-widest uppercase text-sm">
-          Undergrad · Bachelor's · Master's
+          Bachelor&apos;s · Master&apos;s
         </p>
       </section>
 
       {/* Program Cards */}
       <section className="relative z-10 max-w-5xl mx-auto px-6 pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {programs.map((p) => {
             const Icon = p.icon;
             return (
